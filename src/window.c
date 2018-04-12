@@ -9,8 +9,10 @@
 void init_shapes(Window* window) {
 
 
-    int total_shapes = 1;
+    int total_shapes = 2;
     window->total_shapes = total_shapes;
+
+    window->shapes = (Shape**)malloc(sizeof(Shape) * total_shapes);
 
     Vector3* vertices = (Vector3*)malloc( 3 * sizeof(Vector3));
 
@@ -32,16 +34,11 @@ void init_shapes(Window* window) {
     Vector3* translation = create_vector(1.0f , 1.0f , 0.0f);
     Vector3* scale = create_vector(0.0f , 0.0f , 0.0f);
 
-    Shape* shape = create_shape(3 , vertices , translation , rotation , scale , 0 , GL_TRIANGLES , 0);
 
-    printf("%f\n" , shape->angle);
-    window->shape = shape;
-    //window->shapes = (Shape*)malloc(sizeof(Shape) * total_shapes);
-    //window->shapes[0] = shape;
+    Vector3* translation2 = create_vector(0.0f , 1.0f , 0.0f);
+    window->shapes[0] = create_shape(3 , vertices , translation , rotation , scale , 0 , GL_TRIANGLES , 0);
+    window->shapes[1] = create_shape(3 , vertices ,  translation2, rotation , scale , 0 , GL_TRIANGLES , 0);
 
-
-
-    //Shape* first_shape = create_shape()
 }
 
 
@@ -80,7 +77,11 @@ void draw_window(Window* window) {
 
 
     init_window_camera(window);
-    draw_shape(window->shape);
+
+    int i = 0;
+
+    for(int i = 0 ; i < window->total_shapes; i++)
+        draw_shape(window->shapes[i]);
 
 
 }

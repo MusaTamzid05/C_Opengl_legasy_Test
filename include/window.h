@@ -15,7 +15,7 @@ typedef struct Window {
     int update_time;
 
     int total_shapes;
-    Shape*  shape;
+    Shape** shapes;
 
 } Window;
 
