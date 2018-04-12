@@ -90,5 +90,11 @@ void draw_window(Window* window) {
 void update_window(Window* window) {
 
 
+
+    int i = 0;
+
+    for(int i = 0 ; i < window->total_shapes; i++)
+        update_shape(window->shapes[i]);
+
 }
 

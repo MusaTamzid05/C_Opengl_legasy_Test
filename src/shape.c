@@ -49,5 +49,6 @@ Shape* create_shape(int total_vertices , Vector3* vertices , Vector3* translatio
 
 void update_shape(Shape* shape) {
 
+    shape->translation->x += 0.01;
 
 }
