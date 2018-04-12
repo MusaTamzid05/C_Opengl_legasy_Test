@@ -2,7 +2,7 @@
 #include <GL/glut.h>
 #include <stdio.h>
 #include "shape.h"
-
+#include "inharitance_tester.h"
 
 
 
@@ -37,7 +37,9 @@ void init_shapes(Window* window) {
 
     Vector3* translation2 = create_vector(0.0f , 1.0f , 0.0f);
     window->shapes[0] = create_shape(3 , vertices , translation , rotation , scale , 0 , GL_TRIANGLES , 0);
+    window->shapes[0]->update_func_ptr = update1;
     window->shapes[1] = create_shape(3 , vertices ,  translation2, rotation , scale , 0 , GL_TRIANGLES , 0);
+    window->shapes[1]->update_func_ptr = update2;
 
 }
 
@@ -61,9 +63,6 @@ void init_window_camera(Window* window) {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    show_vertex("Rotation" , window->camera->rotation);
-    show_vertex("translation" , window->camera->translation);
-    printf("Angle : %d\n" ,window->camera->angle);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity(); 
@@ -94,7 +93,7 @@ void update_window(Window* window) {
     int i = 0;
 
     for(int i = 0 ; i < window->total_shapes; i++)
-        update_shape(window->shapes[i]);
+        window->shapes[i]->update_func_ptr(window->shapes[i]);
 
 }
 

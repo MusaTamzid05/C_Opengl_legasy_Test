@@ -17,6 +17,8 @@ typedef struct Shape  {
 
     int should_scale;
 
+    void (*update_func_ptr)();
+
 } Shape;
 
 
