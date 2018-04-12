@@ -15,6 +15,7 @@ void init_glut(int argc , char** argv , Window* window) {
 	glutInitWindowPosition(window->width / 2 , window->height / 2);
 
     main_window = window;
+    main_window->current_key ='-';
     init_shapes(main_window);
 
 }
@@ -33,6 +34,19 @@ void init_rendering() {
 }
 
 
+void keyboard(unsigned char key , int x , int y) {
+
+    if(main_window == NULL) {
+
+        printf("Window is not initialized yet.Cant hangle the key board!!\n");
+        return;
+    }
+
+
+    main_window->current_key = key;
+
+
+}
 
 
 void handle_resize(int w, int h)  {

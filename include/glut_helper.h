@@ -14,5 +14,6 @@ void handle_resize(int w, int h) ;
 
 void update_callback(int value);
 void draw_callback();
+void keyboard(unsigned char key , int x , int y);
 
 #endif

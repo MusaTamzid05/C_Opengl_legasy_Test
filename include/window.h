@@ -17,6 +17,8 @@ typedef struct Window {
     int total_shapes;
     Shape** shapes;
 
+    unsigned char current_key;
+
 } Window;
 
 

@@ -1,14 +1,24 @@
 #include "shape_updater.h"
+#include <stdio.h>
+
+void update1(Shape* shape , unsigned char key) {
 
 
-void update1(Shape* shape) {
+    printf("Current key %c\n" , key);
 
-    shape->translation->x -= 0.01;
+    if(key == 'a')
+        shape->translation->x -= 0.01;
+    else if(key == 'd')
+        shape->translation->x += 0.01;
 }
 
-void update2(Shape* shape) {
+void update2(Shape* shape , unsigned char key) {
 
-    shape->translation->x += 0.01;
+
+    if(key == 'h')
+        shape->translation->x -= 0.01;
+    else if(key == 'j')
+        shape->translation->x += 0.01;
 }
 
 

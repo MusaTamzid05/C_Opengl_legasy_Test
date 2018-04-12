@@ -3,7 +3,7 @@
 
 #include "shape.h"
 
-void update1(Shape* shape);
-void update2(Shape* shape);
+void update1(Shape* shape , unsigned char key);
+void update2(Shape* shape , unsigned char key);
 
 #endif

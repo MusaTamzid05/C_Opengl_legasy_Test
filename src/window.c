@@ -92,8 +92,10 @@ void update_window(Window* window) {
 
     int i = 0;
 
-    for(int i = 0 ; i < window->total_shapes; i++)
-        window->shapes[i]->update_func_ptr(window->shapes[i]);
+    for(int i = 0 ; i < window->total_shapes; i++){
+        window->shapes[i]->update_func_ptr(window->shapes[i] , window->current_key);
+    }
 
+    window->current_key = '-';
 }
 
