@@ -2,7 +2,7 @@
 #include <GL/glut.h>
 #include <stdio.h>
 #include "shape.h"
-#include "inharitance_tester.h"
+#include "shape_updater.h"
 
 
 

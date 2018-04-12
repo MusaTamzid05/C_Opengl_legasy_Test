@@ -1,4 +1,4 @@
-#include "inharitance_tester.h"
+#include "shape_updater.h"
 
 
 void update1(Shape* shape) {

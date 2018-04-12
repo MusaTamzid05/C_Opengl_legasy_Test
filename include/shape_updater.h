@@ -1,5 +1,5 @@
-#ifndef INHARITANCE_TESTER_H
-#define INHARITANCE_TESTER_H
+#ifndef SHAPE_UPDATER_H
+#define SHAPE_UPDATER_H
 
 #include "shape.h"
 
