@@ -9,37 +9,37 @@
 void init_shapes(Window* window) {
 
 
-    int total_shapes = 2;
+    int total_shapes = 1;
     window->total_shapes = total_shapes;
 
     window->shapes = (Shape**)malloc(sizeof(Shape) * total_shapes);
 
     Vector3* vertices = (Vector3*)malloc( 3 * sizeof(Vector3));
 
-    vertices[0].x = 0.5f;
-    vertices[0].y = -0.5f;
+    vertices[0].x = 0.8f;
+    vertices[0].y = -0.8f;
     vertices[0].z = 0.0f;
 
 
     vertices[1].x = 0.0f;
-    vertices[1].y = 0.5f;
+    vertices[1].y = 2.0f;
     vertices[1].z = -0.0f;
 
 
-    vertices[2].x = -0.5f;
-    vertices[2].y = -0.5f;
+    vertices[2].x = -0.8f;
+    vertices[2].y = -0.8f;
     vertices[2].z = 0.0f;
 
-    Vector3* rotation = create_vector(0.0f , 1.0f , 0.0f);
-    Vector3* translation = create_vector(1.0f , 1.0f , 0.0f);
+    Vector3* rotation = create_vector(1.0f , 0.0f , 0.0f);
+    Vector3* translation = create_vector(0.0f , -2.5f , 0.0f);
     Vector3* scale = create_vector(0.0f , 0.0f , 0.0f);
 
 
     Vector3* translation2 = create_vector(0.0f , 1.0f , 0.0f);
-    window->shapes[0] = create_shape(3 , vertices , translation , rotation , scale , 0 , GL_TRIANGLES , 0);
+    window->shapes[0] = create_shape(3 , vertices , translation , rotation , scale , 60, GL_TRIANGLES , 0);
     window->shapes[0]->update_func_ptr = update1;
-    window->shapes[1] = create_shape(3 , vertices ,  translation2, rotation , scale , 0 , GL_TRIANGLES , 0);
-    window->shapes[1]->update_func_ptr = update2;
+    //window->shapes[1] = create_shape(3 , vertices ,  translation2, rotation , scale , 0 , GL_TRIANGLES , 0);
+    //window->shapes[1]->update_func_ptr = update2;
 
 }
 
