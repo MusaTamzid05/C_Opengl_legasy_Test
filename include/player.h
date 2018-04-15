@@ -7,4 +7,10 @@
 Shape* create_player();
 void update_player(Shape* shape , unsigned char key);
 
+
+// this tool are for debuging perpose only.
+
+
+void debug_angle(Shape* shape , unsigned char key);
+
 #endif

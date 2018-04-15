@@ -4,12 +4,13 @@
 void update1(Shape* shape , unsigned char key) {
 
 
-    printf("Current key %c\n" , key);
+    printf("Current Player angle => %f.\n" ,shape->angle);
+
 
     if(key == 'a')
-        shape->translation->x -= 0.01;
+        shape->angle  += 1.0f;
     else if(key == 'd')
-        shape->translation->x += 0.01;
+        shape->angle  -= 1.0f;
 }
 
 void update2(Shape* shape , unsigned char key) {

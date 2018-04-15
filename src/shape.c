@@ -5,46 +5,11 @@
 
 void draw_shape(Shape* shape) {
 
-
-    /*
-	glPushMatrix(); 
-	glTranslatef(shape->translation->x , shape->translation->y, shape->translation->z);
-
-    if(shape->should_scale)
-        glScalef(shape->scale->x , shape->scale->y , shape->scale->z); 
-
-    glRotatef(shape->angle ,shape->rotation->x, shape->rotation->y , shape->rotation->z); 
-
-
-    glColor3f(shape->shape_data->color->x , shape->shape_data->color->y , shape->shape_data->color->z);
-
-
-    if(shape->shape_data->shape_type == Wire)  {
-
-        printf("Wire");
-        glutWireCube(shape->shape_data->shape_size);
-    }
-
-
-   
-
-	glPopMatrix(); 
-
-    */
-
-
-
-    show_vertex("Color" , shape->shape_data->color);
-    show_vertex("Translation" , shape->translation);
-    show_vertex("Rotation" , shape->rotation);
-    printf("Shape size : %f\n" , shape->shape_data->shape_size);
-
     glPushMatrix();
 
     glColor3f(shape->shape_data->color->x ,shape->shape_data->color->y ,
             shape->shape_data->color->z);
 
-    //glTranslatef(0.0,-0.20,0.0);
 
     glTranslatef(shape->translation->x,shape->translation->y,shape->translation->z);
 
@@ -52,7 +17,7 @@ void draw_shape(Shape* shape) {
 
 
     if(shape->shape_data->shape_type == Wire)
-        glutWireCone(shape->shape_data->shape_size,.50,15,15); //(GLdouble base, GLdouble height,GLint slices, GLint stacks);
+        glutWireCone(shape->shape_data->shape_size,.80,15,15); //(GLdouble base, GLdouble height,GLint slices, GLint stacks);
     glPopMatrix();
 
 
