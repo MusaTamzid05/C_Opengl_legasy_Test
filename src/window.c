@@ -1,9 +1,8 @@
 #include "window.h"
 #include <GL/glut.h>
 #include <stdio.h>
-#include "shape.h"
-#include "shape_updater.h"
-
+#include "player.h"
+#include "const.h"
 
 
 void init_shapes(Window* window) {
@@ -15,14 +14,8 @@ void init_shapes(Window* window) {
     window->shapes = (Shape**)malloc(sizeof(Shape) * total_shapes);
 
 
-    Vector3* rotation = create_vector(1.0f , 0.0f , 0.0f);
-    Vector3* translation = create_vector(1.0f , 0.0f , 0.0f);
-    Vector3* scale = create_vector(0.0f , 0.0f , 0.0f);
-
-    ShapeData* shape_data = create_shape_data(Wire , 0.3, create_vector(0.0f, 0.0f , 1.0f));
-
-    window->shapes[0] = create_shape(shape_data , translation , rotation , scale , 310, 0);
-    window->shapes[0]->update_func_ptr = update1;
+    window->shapes[PLAYER_INDEX] = create_player();
+    window->shapes[PLAYER_INDEX]->update_func_ptr = update_player;
 }
 
 
