@@ -33,16 +33,21 @@ void update_player(Shape* shape , unsigned char key) {
 void handle_keyboard(Shape* shape , unsigned char key) {
 
 
+    printf("key :=> %d\n" , key);
+
+
     if(key == 'a')
         shape->translation->x -= 0.1f;
     else if(key == 'd')
         shape->translation->x += 0.1f;
+    else if(key == SPACEBAR)
+        printf("Space has been pressed.\n");
 }
 
 void limit_bound(Shape* shape) {
 
 
-    printf("x cordinate : %f\n" , shape->translation->x);
+    //printf("x cordinate : %f\n" , shape->translation->x);
 
     if(shape->translation->x > PLAYER_SCREEN_RIGHT)
         shape->translation->x = PLAYER_SCREEN_RIGHT;
