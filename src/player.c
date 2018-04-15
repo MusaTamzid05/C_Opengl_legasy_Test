@@ -31,7 +31,7 @@ MoveData* create_player_move_data() {
     Vector3* velocity = create_vector(0.0f , 0.0f , 0.0f);
     Vector3* acceleration = create_vector(0.0f , 0.0f , 0.0f);
 
-    Vector3* gravity = create_vector(0.0f , -0.01f , 0.0f);
+    Vector3* gravity = create_vector(0.0f , PLAYER_GRAVITY , 0.0f);
 
     return create_move_data(velocity , acceleration , gravity , mass , PLAYER_FRICTION);
 
@@ -74,12 +74,20 @@ void limit_bound(Shape* shape) {
 
 
 
-    if(shape->translation->x > PLAYER_SCREEN_RIGHT)
+    if(shape->translation->x > PLAYER_SCREEN_RIGHT) {
+
         shape->translation->x = PLAYER_SCREEN_RIGHT;
+        shape->move_data->velocity->x *= -1;
+
+    }
 
 
-    else if(shape->translation->x <  PLAYER_SCREEN_LEFT)
+    else if(shape->translation->x <  PLAYER_SCREEN_LEFT) {
+
         shape->translation->x = PLAYER_SCREEN_LEFT;
+        shape->move_data->velocity->x *= -1;
+
+    }
 
 
 
@@ -126,6 +134,7 @@ void apply_force_to_player(Shape* shape , Vector3* force) {
 void apply_friction_to_player(Shape* shape) {
 
 
+    // nomarlize_velocity * -1  * friction_constant.
     
     Vector3* friction = (Vector3*)malloc(sizeof(Vector3));
     copy_vector(shape->move_data->velocity , friction);

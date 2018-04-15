@@ -14,6 +14,8 @@ extern const float PLAYER_GROUND_LIMIT;
 // Player Force.
 
 
+
+extern const float PLAYER_GRAVITY;
 extern const float PLAYER_FRICTION;
 extern const float PLAYER_JUMP_FORCE_Y_AXIS;
 

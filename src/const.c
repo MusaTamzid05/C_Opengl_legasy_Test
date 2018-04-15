@@ -9,6 +9,7 @@ const float PLAYER_GROUND_LIMIT = -2.4f;
 // Player Force
 
 
+const float PLAYER_GRAVITY = -0.01f;
 const float PLAYER_FRICTION = 0.001f;;
 const float PLAYER_JUMP_FORCE_Y_AXIS = 0.2f;
 
