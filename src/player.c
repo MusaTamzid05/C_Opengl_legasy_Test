@@ -15,7 +15,7 @@ Shape* create_player() {
     ShapeData* shape_data = create_shape_data(Wire , 0.4, create_vector(0.0f, 0.0f , 1.0f));
 
     
-    return create_shape(shape_data , translation , rotation , scale , 231.0f , 0);
+    return create_shape(shape_data , translation , rotation , 231.0f );
 
 
 }
@@ -33,7 +33,6 @@ void update_player(Shape* shape , unsigned char key) {
 void handle_keyboard(Shape* shape , unsigned char key) {
 
 
-    printf("key :=> %d\n" , key);
 
 
     if(key == 'a')

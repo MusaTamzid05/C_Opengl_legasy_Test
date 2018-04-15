@@ -17,7 +17,8 @@ void draw_shape(Shape* shape) {
 
 
     if(shape->shape_data->shape_type == Wire)
-        glutWireCone(shape->shape_data->shape_size,.80,15,15); //(GLdouble base, GLdouble height,GLint slices, GLint stacks);
+        glutWireCone(shape->shape_data->shape_size,.80,15,15); 
+
     glPopMatrix();
 
 
@@ -25,16 +26,14 @@ void draw_shape(Shape* shape) {
 
 
 
-Shape* create_shape(ShapeData* shape_data  , Vector3* translation , Vector3* rotation ,  Vector3* scale , float angle , int should_scale) {
+Shape* create_shape(ShapeData* shape_data  , Vector3* translation , Vector3* rotation ,  float angle ) {
 
     Shape* shape = (Shape*)malloc(sizeof(Shape));
 
     shape->shape_data = shape_data;
     shape->translation = translation;
     shape->rotation = rotation;
-    shape->scale = scale;
     shape->angle = angle;
-    shape->should_scale = should_scale;
 
     return shape;
 }
