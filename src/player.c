@@ -32,21 +32,20 @@ void update_player(Shape* shape , unsigned char key) {
 
 void handle_keyboard(Shape* shape , unsigned char key) {
 
-
-
-
     if(key == 'a')
-        shape->translation->x -= 0.1f;
+        shape->translation->x -= SPEED_X_AXIS;
+
     else if(key == 'd')
-        shape->translation->x += 0.1f;
+        shape->translation->x += SPEED_X_AXIS;
+
     else if(key == SPACEBAR)
-        printf("Space has been pressed.\n");
+        handle_jump(shape);
+
 }
 
 void limit_bound(Shape* shape) {
 
 
-    //printf("x cordinate : %f\n" , shape->translation->x);
 
     if(shape->translation->x > PLAYER_SCREEN_RIGHT)
         shape->translation->x = PLAYER_SCREEN_RIGHT;
@@ -54,6 +53,16 @@ void limit_bound(Shape* shape) {
 
     else if(shape->translation->x <  PLAYER_SCREEN_LEFT)
         shape->translation->x = PLAYER_SCREEN_LEFT;
+
+
+}
+
+void handle_jump(Shape* shape) {
+
+
+    if(shape->translation->y <  PLAYER_HIGHEST_JUMP_LIMIT)
+        shape->translation->y +=  SPEED_X_AXIS;
+    printf("Player y : %f\n" , shape->translation->y);
 
 
 }

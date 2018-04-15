@@ -9,6 +9,8 @@ void update_player(Shape* shape , unsigned char key);
 void handle_keyboard(Shape* shape , unsigned char key);
 void limit_bound(Shape* shape);
 
+void handle_jump(Shape* shape);
+
 // this tool are for debuging perpose only.
 
 
