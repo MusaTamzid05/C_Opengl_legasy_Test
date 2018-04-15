@@ -1,6 +1,9 @@
 #include  "player.h"
 #include <stdio.h>
 
+#include "const.h"
+
+
 Shape* create_player() {
 
 
@@ -19,10 +22,37 @@ Shape* create_player() {
 
 
 void update_player(Shape* shape , unsigned char key) {
-    
+   
+    handle_keyboard(shape , key);
+    limit_bound(shape);
 
 }
 
+
+
+void handle_keyboard(Shape* shape , unsigned char key) {
+
+
+    if(key == 'a')
+        shape->translation->x -= 0.1f;
+    else if(key == 'd')
+        shape->translation->x += 0.1f;
+}
+
+void limit_bound(Shape* shape) {
+
+
+    printf("x cordinate : %f\n" , shape->translation->x);
+
+    if(shape->translation->x > PLAYER_SCREEN_RIGHT)
+        shape->translation->x = PLAYER_SCREEN_RIGHT;
+
+
+    else if(shape->translation->x <  PLAYER_SCREEN_LEFT)
+        shape->translation->x = PLAYER_SCREEN_LEFT;
+
+
+}
 
 void debug_angle(Shape* shape , unsigned char key) {
 
