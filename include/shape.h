@@ -28,7 +28,8 @@ typedef struct Shape  {
 } Shape;
 
 
-Shape* create_shape(ShapeData* shape_data , Vector3* translation , Vector3* rotation, float angle);
+Shape* create_shape(ShapeData* shape_data , Vector3* translation , Vector3* rotation, float angle , MoveData* move_data);
+
 void draw_shape(Shape* shape);
 void update_shape(Shape* shape);
 

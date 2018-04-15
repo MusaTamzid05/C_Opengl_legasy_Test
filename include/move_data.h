@@ -14,5 +14,8 @@ typedef struct MoveData {
 } MoveData;
 
 
+MoveData* create_move_data(Vector3* velocity , Vector3* acceleration , Vector3* gravity , float mass);
+
+
 
 #endif

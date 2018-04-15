@@ -29,3 +29,68 @@ void show_vertex(char* name , Vector3* vec) {
 
     printf("%s =>  x : %f , y : %f , z : %f.\n" , name ,  vec->x , vec->y , vec->z);
 }
+
+
+void add_vector(Vector3* vec1 , Vector3* vec2) {
+
+
+    vec1->x += vec2->x;
+    vec1->y += vec2->y;
+    vec1->z += vec2->z;
+
+}
+
+
+void sub_vector(Vector3* vec1  , Vector3* vec2) {
+
+
+    vec1->x -= vec2->x;
+    vec1->y -= vec2->y;
+    vec1->z -= vec2->z;
+
+}
+
+void multi_vector(Vector3* vec , float value) {
+
+
+    vec->x *= value;
+    vec->y *= value;
+    vec->z *= value;
+}
+
+
+void div_vector(Vector3* vec , float value) {
+
+
+    vec->x /= value;
+    vec->y /= value;
+    vec->z /= value;
+
+}
+
+
+Vector3* multi_return_vector(Vector3* vec , float value) {
+
+    Vector3* new_vector = (Vector3*)malloc(sizeof(Vector3));
+
+    new_vector->x = vec->x * value;
+    new_vector->y = vec->y * value;
+    new_vector->z = vec->z * value;
+
+    return new_vector;
+
+
+}
+
+
+Vector3* div_return_vector(Vector3* vec , float value) {
+
+
+    Vector3* new_vector = (Vector3*)malloc(sizeof(Vector3));
+
+    new_vector->x = vec->x / value;
+    new_vector->y = vec->y / value;
+    new_vector->z = vec->z / value;
+
+    return new_vector;
+}

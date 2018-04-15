@@ -1,11 +1,15 @@
 #ifndef CONST_H
 #define CONST_H
 
+// array index for using data.
+extern const int PLAYER_INDEX;
+
 // player boundaries.
 
-extern const int PLAYER_INDEX;
 extern const float PLAYER_SCREEN_RIGHT;
 extern const float PLAYER_SCREEN_LEFT;
+
+extern const float PLAYER_GROUND_LIMIT;
 
 // player speed
 

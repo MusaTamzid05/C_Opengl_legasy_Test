@@ -26,7 +26,7 @@ void draw_shape(Shape* shape) {
 
 
 
-Shape* create_shape(ShapeData* shape_data  , Vector3* translation , Vector3* rotation ,  float angle ) {
+Shape* create_shape(ShapeData* shape_data  , Vector3* translation , Vector3* rotation ,  float angle , MoveData* move_data) {
 
     Shape* shape = (Shape*)malloc(sizeof(Shape));
 
@@ -35,6 +35,7 @@ Shape* create_shape(ShapeData* shape_data  , Vector3* translation , Vector3* rot
     shape->rotation = rotation;
     shape->angle = angle;
 
+    shape->move_data = move_data;
     return shape;
 }
 
