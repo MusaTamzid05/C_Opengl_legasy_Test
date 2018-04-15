@@ -8,6 +8,9 @@ const float PLAYER_GROUND_LIMIT = -2.4f;
 
 // player speed
 
+
+
+const float PLAYER_FRICTION = 0.001;;
 const float SPEED_X_AXIS = 0.1f;
 const float SPEED_Y_AXIS = 0.1f;
 

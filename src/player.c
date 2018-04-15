@@ -1,6 +1,6 @@
 #include  "player.h"
 #include <stdio.h>
-
+#include <stdlib.h>
 #include "const.h"
 
 
@@ -33,7 +33,7 @@ MoveData* create_player_move_data() {
 
     Vector3* gravity = create_vector(0.0f , -0.01f , 0.0f);
 
-    return create_move_data(velocity , acceleration , gravity , mass);
+    return create_move_data(velocity , acceleration , gravity , mass , PLAYER_FRICTION);
 
 
 }
@@ -111,6 +111,7 @@ void update_movement_data(Shape* shape) {
     add_vector(shape->move_data->velocity , shape->move_data->acceleration);
     add_vector(shape->translation , shape->move_data->velocity);
     multi_vector(shape->move_data->acceleration , 0);
+    apply_friction_to_player(shape);
 
 }
 
@@ -124,6 +125,23 @@ void apply_force_to_player(Shape* shape , Vector3* force) {
 
 }
 
+
+void apply_friction_to_player(Shape* shape) {
+
+
+    
+    Vector3* friction = (Vector3*)malloc(sizeof(Vector3));
+    copy_vector(shape->move_data->velocity , friction);
+    multi_vector(friction ,-1.0f);
+
+    normalize_vector(friction);
+    multi_vector(friction , shape->move_data->friction_constant);
+
+    apply_force_to_player(shape , friction);
+
+
+}
+
 void debug_angle(Shape* shape , unsigned char key) {
 
     printf("Current Player angle => %f.\n" ,shape->angle);
@@ -134,3 +152,5 @@ void debug_angle(Shape* shape , unsigned char key) {
     else if(key == 'd')
         shape->angle  -= 1.0f;
 }
+
+

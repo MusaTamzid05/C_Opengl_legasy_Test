@@ -12,4 +12,4 @@ find_package(GLUT REQUIRED)
 
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} include )
 
-target_link_libraries(testas ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} GL GLU dl )
+target_link_libraries(testas ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} GL GLU dl  m)

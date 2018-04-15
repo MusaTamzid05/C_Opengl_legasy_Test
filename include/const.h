@@ -13,6 +13,8 @@ extern const float PLAYER_GROUND_LIMIT;
 
 // player speed
 
+
+extern const float PLAYER_FRICTION;
 extern const float SPEED_X_AXIS;
 extern const float SPEED_Y_AXIS;
 

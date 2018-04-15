@@ -15,7 +15,7 @@ void handle_jump(Shape* shape);
 
 void update_movement_data(Shape* shape);
 void apply_force_to_player(Shape* shape , Vector3* force);
-
+void apply_friction_to_player(Shape* shape);
 
 // this tool are for debuging perpose only.
 

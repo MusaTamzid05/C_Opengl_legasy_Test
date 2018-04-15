@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <math.h>
 
 Vector3* create_vector(float x , float y , float z) {
 
@@ -93,4 +94,32 @@ Vector3* div_return_vector(Vector3* vec , float value) {
     new_vector->z = vec->z / value;
 
     return new_vector;
+}
+
+
+float magitude_of_vector(Vector3* vec) {
+
+    return sqrt(vec->x * vec->x +  vec->y * vec->y);
+}
+
+
+void normalize_vector(Vector3* vec) {
+
+    
+    float magnitude = magitude_of_vector(vec);
+
+    if(magnitude != 0)
+        div_vector(vec , magnitude);
+
+
+    
+}
+
+
+Vector3* copy_vector(Vector3* from , Vector3* to) {
+
+    
+    to->x = from->x;
+    to->y = from->y;
+    to->z = from->z;
 }

@@ -27,4 +27,9 @@ void div_vector(Vector3* vec , float value);
 Vector3* multi_return_vector(Vector3* vec , float value);
 Vector3* div_return_vector(Vector3* vec , float value);
 
+Vector3* copy_vector(Vector3* from , Vector3* to);
+
+float magitude_of_vector(Vector3* vec);
+void  normalize_vector(Vector3* vec);
+
 #endif
