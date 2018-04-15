@@ -55,10 +55,11 @@ void update_player(Shape* shape , unsigned char key) {
 void handle_keyboard(Shape* shape , unsigned char key) {
 
     if(key == 'a')
-        shape->translation->x -= SPEED_X_AXIS;
+        apply_force_to_player(shape  , create_vector(-SPEED_X_AXIS , 0.0f , 0.0f));
+
 
     else if(key == 'd')
-        shape->translation->x += SPEED_X_AXIS;
+        apply_force_to_player(shape  , create_vector(SPEED_X_AXIS , 0.0f , 0.0f));
 
     else if(key == 's')
         shape->translation->y -= SPEED_Y_AXIS;
