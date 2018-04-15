@@ -3,30 +3,28 @@
 
 #include <GL/gl.h>
 #include "vertex.h"
+#include "shape_data.h"
 
 
-enum ShapeType {
 
-    Wire,
-    Square
-};
+typedef struct MoveData {
 
-typedef struct ShapeData {
+    Vector3*   velocity;
+    Vector3*   acceleration;
+    Vector3*   gravity;
 
-
-    enum ShapeType shape_type;
-    float   shape_size;
-    Vector3* color;
-} ShapeData;
+    float     mass;
+} MoveData;
 
 
-ShapeData* create_shape_data(enum ShapeType shape_type , float shape_size , Vector3* color);
 
 
 typedef struct Shape  {
 
 
     ShapeData*  shape_data;
+    MoveData*  move_data;
+
     Vector3* translation;
     Vector3* rotation;
     Vector3* scale;
