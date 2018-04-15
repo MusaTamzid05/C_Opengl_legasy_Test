@@ -11,16 +11,21 @@ extern const float PLAYER_SCREEN_LEFT;
 
 extern const float PLAYER_GROUND_LIMIT;
 
-// player speed
+// Player Force.
 
 
 extern const float PLAYER_FRICTION;
+extern const float PLAYER_JUMP_FORCE_Y_AXIS;
+
+// player speed
+
+
 extern const float SPEED_X_AXIS;
 extern const float SPEED_Y_AXIS;
 
-// player jump limits.
 
-extern const float PLAYER_HIGHEST_JUMP_LIMIT;
+
+
 
 
 extern const int SPACEBAR;

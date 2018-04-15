@@ -9,7 +9,7 @@ Shape* create_player() {
 
 
     Vector3* rotation = create_vector(1.0f , 0.0f , 0.0f);
-    Vector3* translation = create_vector(-1.0f ,  -0.1 , 0.0f);
+    Vector3* translation = create_vector(-1.0f ,  PLAYER_GROUND_LIMIT , 0.0f);
 
     ShapeData* shape_data = create_shape_data(Wire , 0.4, create_vector(0.0f, 0.0f , 1.0f));
 
@@ -95,10 +95,7 @@ void limit_bound(Shape* shape) {
 void handle_jump(Shape* shape) {
 
 
-    if(shape->translation->y <  PLAYER_HIGHEST_JUMP_LIMIT)
-        shape->translation->y +=  SPEED_X_AXIS;
-    printf("Player y : %f\n" , shape->translation->y);
-
+    apply_force_to_player(shape , create_vector(0.0f , PLAYER_JUMP_FORCE_Y_AXIS , 0.0f));
 
 }
 
