@@ -5,7 +5,8 @@
 
 void draw_shape(Shape* shape) {
 
-   
+
+    /*
 	glPushMatrix(); 
 	glTranslatef(shape->translation->x , shape->translation->y, shape->translation->z);
 
@@ -14,34 +15,60 @@ void draw_shape(Shape* shape) {
 
     glRotatef(shape->angle ,shape->rotation->x, shape->rotation->y , shape->rotation->z); 
 
-	glBegin(shape->mode);
+
+    glColor3f(shape->shape_data->color->x , shape->shape_data->color->y , shape->shape_data->color->z);
 
 
-    int i = 0;
-    for(i = 0 ; i < shape->total_vertices; i++)
-        glVertex3f(shape->vertices[i].x , shape->vertices[i].y , shape->vertices[i].z);
+    if(shape->shape_data->shape_type == Wire)  {
+
+        printf("Wire");
+        glutWireCube(shape->shape_data->shape_size);
+    }
+
 
    
-	glEnd();
 
 	glPopMatrix(); 
+
+    */
+
+
+
+    show_vertex("Color" , shape->shape_data->color);
+    show_vertex("Translation" , shape->translation);
+    show_vertex("Rotation" , shape->rotation);
+    printf("Shape size : %f\n" , shape->shape_data->shape_size);
+
+    glPushMatrix();
+
+    glColor3f(shape->shape_data->color->x ,shape->shape_data->color->y ,
+            shape->shape_data->color->z);
+
+    //glTranslatef(0.0,-0.20,0.0);
+
+    glTranslatef(shape->translation->x,shape->translation->y,shape->translation->z);
+
+    glRotatef(shape->angle ,shape->rotation->x , shape->rotation->y , shape->rotation->z);
+
+
+    if(shape->shape_data->shape_type == Wire)
+        glutWireCone(shape->shape_data->shape_size,.50,15,15); //(GLdouble base, GLdouble height,GLint slices, GLint stacks);
+    glPopMatrix();
 
 
 }
 
 
 
-Shape* create_shape(int total_vertices , Vector3* vertices , Vector3* translation , Vector3* rotation ,  Vector3* scale , float angle , GLenum mode  , int should_scale) {
+Shape* create_shape(ShapeData* shape_data  , Vector3* translation , Vector3* rotation ,  Vector3* scale , float angle , int should_scale) {
 
     Shape* shape = (Shape*)malloc(sizeof(Shape));
 
-    shape->total_vertices = total_vertices;
-    shape->vertices = vertices;
+    shape->shape_data = shape_data;
     shape->translation = translation;
     shape->rotation = rotation;
     shape->scale = scale;
     shape->angle = angle;
-    shape->mode = mode;
     shape->should_scale = should_scale;
 
     return shape;
@@ -51,4 +78,15 @@ void update_shape(Shape* shape) {
 
     shape->translation->x += 0.01;
 
+}
+
+
+ShapeData* create_shape_data(enum ShapeType shape_type , float shape_size , Vector3* color) {
+
+    ShapeData* shape_data =(ShapeData*)malloc(sizeof(ShapeData));
+    shape_data->shape_type = shape_type;
+    shape_data->shape_size = shape_size;
+    shape_data->color = color;
+
+    return shape_data;
 }

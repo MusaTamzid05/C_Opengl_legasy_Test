@@ -4,16 +4,34 @@
 #include <GL/gl.h>
 #include "vertex.h"
 
+
+enum ShapeType {
+
+    Wire,
+    Square
+};
+
+typedef struct ShapeData {
+
+
+    enum ShapeType shape_type;
+    float   shape_size;
+    Vector3* color;
+} ShapeData;
+
+
+ShapeData* create_shape_data(enum ShapeType shape_type , float shape_size , Vector3* color);
+
+
 typedef struct Shape  {
 
-    int total_vertices;
-    Vector3* vertices;
+
+    ShapeData*  shape_data;
     Vector3* translation;
     Vector3* rotation;
     Vector3* scale;
     float angle;
 
-    GLenum mode;
 
     int should_scale;
 
@@ -22,7 +40,7 @@ typedef struct Shape  {
 } Shape;
 
 
-Shape* create_shape(int total_vertices , Vector3* vertices , Vector3* translation , Vector3* rotation ,  Vector3* scale , float angle , GLenum mode  , int should_scale);
+Shape* create_shape(ShapeData* shape_data , Vector3* translation , Vector3* rotation ,  Vector3* scale , float angle ,  int should_scale);
 void draw_shape(Shape* shape);
 void update_shape(Shape* shape);
 
