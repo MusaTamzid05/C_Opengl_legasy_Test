@@ -3,6 +3,7 @@
 
 // array index for using data.
 extern const int PLAYER_INDEX;
+extern const int ROAD_INDEX;
 
 // player boundaries.
 
@@ -26,10 +27,20 @@ extern const float SPEED_X_AXIS;
 extern const float SPEED_Y_AXIS;
 
 
+//************* Road Data ************/
 
+extern const float ROAD_FRICTION;
+extern const float ROAD_ANGLE;
+extern const float ROAD_X_AXIS_LEFT_LIMIT;
+extern const float ROAD_Y_AXIS_DOWN_LIMIT;
 
+extern const float ROAD_X_AXIS_RIGHT_LIMIT;
+extern const float ROAD_Y_AXIS_UP_LIMIT;
 
+extern const int TOTAL_ROAD_COL;
+extern const int TOTAL_ROAD_ROW;
 
+// keyboard
 extern const int SPACEBAR;
 
 #endif

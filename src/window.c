@@ -2,20 +2,30 @@
 #include <GL/glut.h>
 #include <stdio.h>
 #include "player.h"
+#include "road.h"
 #include "const.h"
 
 
 void init_shapes(Window* window) {
 
 
-    int total_shapes = 1;
+    int total_shapes = 37;
     window->total_shapes = total_shapes;
 
     window->shapes = (Shape**)malloc(sizeof(Shape) * total_shapes);
 
+    Shape** road_shapes = init_road();
 
-    window->shapes[PLAYER_INDEX] = create_player();
-    window->shapes[PLAYER_INDEX]->update_func_ptr = update_player;
+    int i;
+
+    for(i = 0 ; i < total_shapes ; i++)
+        window->shapes[i] = road_shapes[i];
+
+    int player_index  = total_shapes - 1;
+
+
+    window->shapes[player_index] = create_player();
+    window->shapes[player_index]->update_func_ptr = update_player;
 }
 
 
