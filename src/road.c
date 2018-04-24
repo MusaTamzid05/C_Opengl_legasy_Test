@@ -6,10 +6,10 @@
 
 Shape** init_road() {
 
-    Shape** shapes = (Shape**)malloc(sizeof(Shape) * 36 );
+    Shape** shapes = (Shape**)malloc(sizeof(Shape) * 6);
 
-    int i = 0;
-    int j = 0;
+    int row = 0;
+    int col = 0;
 
     float road_col_index = ROAD_X_AXIS_LEFT_LIMIT;
     float road_row_index = ROAD_Y_AXIS_DOWN_LIMIT;
@@ -17,31 +17,30 @@ Shape** init_road() {
     int road_index = 0;
     
     float angle = ROAD_ANGLE ;
+    
+    int total_road_row = 1;
+    int total_road_col = 6;
 
-    for(j = 0 ; j < TOTAL_ROAD_ROW; j++) {
+    float y_axis_values[1] = { ROAD_Y_AXIS_DOWN_LIMIT };
 
 
-        for(i = 0; i < TOTAL_ROAD_COL; i++) {
+    for(row = 0 ; row < total_road_row ; row++) {
 
 
-        Vector3* rotation = create_vector(1.0f , 0.0f , 0.0f);
-        Vector3* translation = create_vector(road_col_index, road_row_index , 0.0f);
-        ShapeData* shape_data = create_shape_data(Cube, 1.0 , create_vector(1.0f , 1.0f , 1.0f));
-        MoveData* move_data = create_single_road_move_data();
+        for(col = 0; col  < total_road_col ; col++) {
 
-        shapes[road_index] = create_single_road(shape_data , translation , rotation , angle,  move_data);
 
-        road_index++;
+            Vector3* rotation = create_vector(1.0f , 0.0f , 0.0f);
+            Vector3* translation = create_vector(road_col_index, y_axis_values[row], 0.0f);
+            ShapeData* shape_data = create_shape_data(Cube, 1.0 , create_vector(1.0f , 1.0f , 1.0f));
+            MoveData* move_data = create_single_road_move_data();
 
-        road_col_index += 1.2f;
+            shapes[col] = create_single_road(shape_data , translation , rotation , ROAD_ANGLE ,  move_data);
+
+            road_col_index += 1.2f;
         }
 
-
-        road_col_index = ROAD_X_AXIS_LEFT_LIMIT;
-        road_row_index += 1.2f;
-
     }
-
 
     return shapes;
 
@@ -67,9 +66,13 @@ void update_single_road(Shape* shape , unsigned char key) {
 
 
     if(key == 'w')
-        shape->translation->y += 1.0f;
+        shape->translation->y += 0.01f;
 
-    printf("Road angle = %f\n" , shape->angle);
+
+    if(key == 's')
+        shape->translation->y -= 0.01f;
+
+    printf("Road y= %f\n" , shape->translation->y);
 
 
 }

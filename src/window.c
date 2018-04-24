@@ -9,7 +9,7 @@
 void init_shapes(Window* window) {
 
 
-    int total_shapes = 37;
+    int total_shapes = 6;
     window->total_shapes = total_shapes;
 
     window->shapes = (Shape**)malloc(sizeof(Shape) * total_shapes);
@@ -24,8 +24,8 @@ void init_shapes(Window* window) {
     int player_index  = total_shapes - 1;
 
 
-    window->shapes[player_index] = create_player();
-    window->shapes[player_index]->update_func_ptr = update_player;
+    //window->shapes[player_index] = create_player();
+    //window->shapes[player_index]->update_func_ptr = update_player;
 }
 
 

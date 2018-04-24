@@ -37,8 +37,6 @@ extern const float ROAD_Y_AXIS_DOWN_LIMIT;
 extern const float ROAD_X_AXIS_RIGHT_LIMIT;
 extern const float ROAD_Y_AXIS_UP_LIMIT;
 
-extern const int TOTAL_ROAD_COL;
-extern const int TOTAL_ROAD_ROW;
 
 // keyboard
 extern const int SPACEBAR;
