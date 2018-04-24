@@ -9,7 +9,7 @@
 void init_shapes(Window* window) {
 
 
-    int total_shapes = 24;
+    int total_shapes = 30;
     window->total_shapes = total_shapes;
 
     window->shapes = (Shape**)malloc(sizeof(Shape) * total_shapes);
