@@ -8,7 +8,7 @@ Shape** init_road() {
 
 
     printf("Road data initialize.\n");
-    Shape** shapes = (Shape**)malloc(sizeof(Shape) * 30);
+    Shape** shapes = (Shape**)malloc(sizeof(Shape) * 36);
     RoadData** road_data = init_road_data();
 
 
@@ -22,12 +22,12 @@ Shape** init_road() {
     
     float angle = ROAD_ANGLE ;
     
-    int total_road_row = 5;
+    int total_road_row = 6;
     int total_road_col = 6;
 
-    float y_axis_values[5] = { ROAD_Y_AXIS_DOWN_LIMIT , -1.500f , -.8200f , -.258f , 0.2f  };
-    float col_starting_index[5] = {ROAD_X_AXIS_LEFT_LIMIT , -2.4f ,  -1.9f , -1.4f , -1.05f};
-    float road_col_incrementer[5] = { 1.2f , 0.95f  , 0.75f  , 0.55f , 0.40f};
+    float y_axis_values[6] = { ROAD_Y_AXIS_DOWN_LIMIT , -1.500f , -.8200f , -.258f , 0.2f , 0.57f};
+    float col_starting_index[6] = {ROAD_X_AXIS_LEFT_LIMIT , -2.4f ,  -1.9f , -1.4f , -1.05f , -0.8f  };
+    float road_col_incrementer[6] = { 1.2f , 0.95f  , 0.75f  , 0.55f , 0.40f , 0.3f };
 
     int road_rect_index = 0;
 
@@ -118,12 +118,13 @@ RoadData* create_road_data(float x , float y) {
 RoadData** init_road_data() {
 
 
-    RoadData** road_data = (RoadData**)malloc(sizeof(RoadData) * 5);
+    RoadData** road_data = (RoadData**)malloc(sizeof(RoadData) * 6);
     road_data[0] = create_road_data(0.6f , 0.75f);
     road_data[1] = create_road_data(0.48f , 0.75f);
     road_data[2] = create_road_data(0.38f , 0.75f);
     road_data[3] = create_road_data(0.28f , 0.75f);
     road_data[4] = create_road_data(0.20f , 0.75f);
+    road_data[5] = create_road_data(0.15f , 0.75f);
 
 
     return road_data;
