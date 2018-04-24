@@ -6,7 +6,11 @@
 
 Shape** init_road() {
 
-    Shape** shapes = (Shape**)malloc(sizeof(Shape) * 6);
+
+    printf("Road data initialize.\n");
+    Shape** shapes = (Shape**)malloc(sizeof(Shape) * 12);
+    RoadData** road_data = init_road_data();
+
 
     int row = 0;
     int col = 0;
@@ -18,15 +22,20 @@ Shape** init_road() {
     
     float angle = ROAD_ANGLE ;
     
-    int total_road_row = 1;
+    int total_road_row = 2;
     int total_road_col = 6;
 
-    float y_axis_values[1] = { ROAD_Y_AXIS_DOWN_LIMIT };
+    float y_axis_values[2] = { ROAD_Y_AXIS_DOWN_LIMIT , -1.500f };
+    float col_starting_index[2] = {ROAD_X_AXIS_LEFT_LIMIT , -2.4f};
+    float road_col_incrementer[2] = { 1.2f , 0.95f };
 
+    int road_rect_index = 0;
 
     for(row = 0 ; row < total_road_row ; row++) {
 
 
+        road_col_index = col_starting_index[row];
+        
         for(col = 0; col  < total_road_col ; col++) {
 
 
@@ -35,18 +44,20 @@ Shape** init_road() {
             ShapeData* shape_data = create_shape_data(Cube, 1.0 , create_vector(1.0f , 1.0f , 1.0f));
             MoveData* move_data = create_single_road_move_data();
 
-            shapes[col] = create_single_road(shape_data , translation , rotation , ROAD_ANGLE ,  move_data);
+            printf("%f , %f \n" , road_data[row]->x , road_data[row]->y);
+            shapes[road_rect_index] = create_single_road(shape_data , translation , rotation , ROAD_ANGLE ,  move_data , road_data[row]);
+            road_rect_index++;
+            road_col_index += road_col_incrementer[row];
 
-            road_col_index += 1.2f;
         }
-
+    
     }
 
     return shapes;
 
 }
 
-Shape* create_single_road(ShapeData* shape_data , Vector3* translation , Vector3* rotation, float angle , MoveData* move_data ) {
+Shape* create_single_road(ShapeData* shape_data , Vector3* translation , Vector3* rotation, float angle , MoveData* move_data   , RoadData* road_data) {
 
     Shape* shape = (Shape*)malloc(sizeof(Shape));
 
@@ -55,6 +66,7 @@ Shape* create_single_road(ShapeData* shape_data , Vector3* translation , Vector3
     shape->rotation = rotation;
     shape->angle = angle;
     shape->move_data = move_data;
+    shape->road_data = road_data;
 
     shape->update_func_ptr = update_single_road;
 
@@ -72,7 +84,7 @@ void update_single_road(Shape* shape , unsigned char key) {
     if(key == 's')
         shape->translation->y -= 0.01f;
 
-    printf("Road y= %f\n" , shape->translation->y);
+    //printf("Road y= %f\n" , shape->translation->y);
 
 
 }
@@ -89,4 +101,27 @@ MoveData* create_single_road_move_data() {
 
     return create_move_data(velocity , acceleration , gravity , mass , ROAD_FRICTION);
 
+}
+
+
+RoadData* create_road_data(float x , float y) {
+
+    RoadData* road_data = (RoadData*)malloc(sizeof(RoadData));
+    road_data->x = x;
+    road_data->y = y;
+
+
+    return road_data;
+}
+
+
+RoadData** init_road_data() {
+
+
+    RoadData** road_data = (RoadData**)malloc(sizeof(RoadData) * 2);
+    road_data[0] = create_road_data(0.6f , 0.75f);
+    road_data[1] = create_road_data(0.48f , 0.75f);
+
+
+    return road_data;
 }
