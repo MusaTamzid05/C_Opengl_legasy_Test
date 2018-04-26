@@ -32,17 +32,11 @@ Shape* create_road() {
 
     Shape* road = create_shape(shape_data , translation , rotation , angle , move_data);
     Vector3** colors = create_road_colors();
-    road_rects = create_road_row(1 , ROAD_X_AXIS_LEFT_LIMIT , ROAD_X_AXIS_RIGHT_LIMIT , 0.0 , 1.0f , 1.0f , colors);
 
+    road_rects  = create_whole_road(ROAD_X_AXIS_LEFT_LIMIT , ROAD_X_AXIS_RIGHT_LIMIT , 9.0f , -3.0f , 1.0f ,  colors);
+    
+    //road_rects = create_road_row(1 , ROAD_X_AXIS_LEFT_LIMIT , ROAD_X_AXIS_RIGHT_LIMIT , -3.0 , -2.0 , 1.0f , colors);
 
-    for(int i = 0 ; i < 6 ; i++) {
-
-        printf("%d\n" , i + 1);
-        printf("left : %f\n" , road_rects[i]->left);
-        printf("right: %f\n" , road_rects[i]->right);
-        printf("top: %f\n" , road_rects[i]->top);
-        printf("Bottom: %f\n" , road_rects[i]->bottom);
-    }
     return road;
 
 }
@@ -66,7 +60,7 @@ void draw_road(Shape* shape ) {
 
 
 
-    for(int i = 0 ; i < 8 ; i++)
+    for(int i = 0 ; i < 96 ; i++)
         draw_rect(road_rects[i]->left , road_rects[i]->right , road_rects[i]->top , road_rects[i]->bottom , road_rects[i]->color );
     //draw_rect(-2.7 , 2.7 , 2.7 , -2.7 , create_vector(0.0f , 0.0f , 1.0f));
     

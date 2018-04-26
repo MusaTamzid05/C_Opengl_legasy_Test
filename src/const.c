@@ -29,10 +29,7 @@ const float ROAD_ANGLE = -53.0f;
 const float ROAD_X_AXIS_LEFT_LIMIT = -4.0f;
 const float ROAD_X_AXIS_RIGHT_LIMIT = 4.0f;
 
-const float ROAD_Y_AXIS_DOWN_LIMIT = -2.34f;
-
-
-const float ROAD_Y_AXIS_UP_LIMIT = 3.0f;
+const int ROAD_COL_COUNT = 8; 
 
 
 
