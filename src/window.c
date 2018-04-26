@@ -9,19 +9,13 @@
 void init_shapes(Window* window) {
 
 
-    int total_shapes = 36;
+    int total_shapes = 1;
     window->total_shapes = total_shapes;
 
     window->shapes = (Shape**)malloc(sizeof(Shape) * total_shapes);
 
-    Shape** road_shapes = init_road();
-
-    int i;
-
-    for(i = 0 ; i < total_shapes ; i++)
-        window->shapes[i] = road_shapes[i];
-
-    int player_index  = total_shapes - 1;
+    window->shapes[0] = create_road();
+    window->shapes[0]->update_func_ptr= update_road;
 
 
     //window->shapes[player_index] = create_player();

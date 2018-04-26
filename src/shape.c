@@ -3,6 +3,8 @@
 #include <stdio.h>
 
 #include "drawer.h"
+#include "road.h"
+
 
 void draw_shape(Shape* shape) {
 
@@ -19,9 +21,9 @@ void draw_shape(Shape* shape) {
 
     if(shape->shape_data->shape_type == Wire)
         glutWireCone(shape->shape_data->shape_size,.80,15,15); 
-    else if(shape->shape_data->shape_type == Cube) {
-        draw_square_with_line(shape->road_data->x , shape->road_data->y);
-    }
+
+    else if(shape->shape_data->shape_type == RoadCube)
+        draw_road(shape);
 
 
     glPopMatrix();

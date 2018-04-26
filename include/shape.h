@@ -8,12 +8,6 @@
 
 
 
-typedef struct RoadData {
-
-    float x;
-    float y;
-
-} RoadData;
 
 
 typedef struct Shape  {
@@ -27,7 +21,6 @@ typedef struct Shape  {
     Vector3* scale;
     float angle;
 
-    RoadData* road_data;
     void (*update_func_ptr)();
 
 } Shape;

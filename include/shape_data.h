@@ -8,7 +8,8 @@
 enum ShapeType {
 
     Wire,
-    Cube
+    RoadCube
+
 };
 
 typedef struct ShapeData {
