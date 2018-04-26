@@ -29,9 +29,14 @@ const float ROAD_ANGLE = -53.0f;
 const float ROAD_X_AXIS_LEFT_LIMIT = -4.0f;
 const float ROAD_X_AXIS_RIGHT_LIMIT = 4.0f;
 
+const int ROAD_RECT_COUNT = 96; 
 const int ROAD_COL_COUNT = 8; 
 
+const float ROAD_Y_AXIS_TOP = 9.0f;
 
+const float ROAD_Y_AXIS_BOTTOM = -3.0f;
+
+const float ROAD_RECT_SPEED = 0.1f; 
 
 //  Keyboard.
 const int SPACEBAR = 32;
