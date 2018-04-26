@@ -3,7 +3,9 @@
 
 
 #include "shape.h"
+#include "road_rect.h"
 
+RoadRect** road_rects;
 
 Shape* create_road();
 

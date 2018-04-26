@@ -25,13 +25,13 @@ const float SPEED_Y_AXIS = 0.1f;
 
 //************* Road Data ************/
 
-const float ROAD_FRICTION = 0.0f;
-const float ROAD_ANGLE = -73.0f;
-const float ROAD_X_AXIS_LEFT_LIMIT = -3.0f;
+const float ROAD_ANGLE = -53.0f;
+const float ROAD_X_AXIS_LEFT_LIMIT = -4.0f;
+const float ROAD_X_AXIS_RIGHT_LIMIT = 4.0f;
+
 const float ROAD_Y_AXIS_DOWN_LIMIT = -2.34f;
 
 
-const float ROAD_X_AXIS_RIGHT_LIMIT = 3.0f;
 const float ROAD_Y_AXIS_UP_LIMIT = 3.0f;
 
 

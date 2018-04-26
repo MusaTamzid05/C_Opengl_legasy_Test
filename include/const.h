@@ -29,14 +29,9 @@ extern const float SPEED_Y_AXIS;
 
 //************* Road Data ************/
 
-extern const float ROAD_FRICTION;
 extern const float ROAD_ANGLE;
 extern const float ROAD_X_AXIS_LEFT_LIMIT;
-extern const float ROAD_Y_AXIS_DOWN_LIMIT;
-
 extern const float ROAD_X_AXIS_RIGHT_LIMIT;
-extern const float ROAD_Y_AXIS_UP_LIMIT;
-
 
 // keyboard
 extern const int SPACEBAR;
