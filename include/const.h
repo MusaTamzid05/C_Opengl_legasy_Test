@@ -11,6 +11,7 @@ extern const float PLAYER_SCREEN_RIGHT;
 extern const float PLAYER_SCREEN_LEFT;
 
 extern const float PLAYER_GROUND_LIMIT;
+extern const float PLAYER_Z_AXIS_VALUS;
 
 // Player Force.
 

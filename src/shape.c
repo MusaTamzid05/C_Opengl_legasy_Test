@@ -20,7 +20,7 @@ void draw_shape(Shape* shape) {
 
 
     if(shape->shape_data->shape_type == Wire)
-        glutWireCone(shape->shape_data->shape_size,.80,15,15); 
+        glutSolidCone(shape->shape_data->shape_size,.80,15,15); 
 
     else if(shape->shape_data->shape_type == RoadCube)
         draw_road(shape);

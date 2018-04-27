@@ -9,7 +9,7 @@ Shape* create_player() {
 
 
     Vector3* rotation = create_vector(1.0f , 0.0f , 0.0f);
-    Vector3* translation = create_vector(-1.0f ,  PLAYER_GROUND_LIMIT , 0.0f);
+    Vector3* translation = create_vector(-1.0f ,  PLAYER_GROUND_LIMIT , PLAYER_Z_AXIS_VALUS);
 
     ShapeData* shape_data = create_shape_data(Wire , 0.4, create_vector(0.0f, 0.0f , 1.0f));
 

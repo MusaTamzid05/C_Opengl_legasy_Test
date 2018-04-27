@@ -5,8 +5,9 @@ const int PLAYER_INDEX = 1;
 const int ROAD_INDEX = 0;
 const float PLAYER_SCREEN_RIGHT =  3.9999;
 const float PLAYER_SCREEN_LEFT =  -3.9999;
-const float PLAYER_GROUND_LIMIT = -2.4f;
+const float PLAYER_GROUND_LIMIT = -1.4f;
 
+const float PLAYER_Z_AXIS_VALUS = 3.0f;
 // Player Force
 
 
