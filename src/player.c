@@ -97,6 +97,12 @@ void limit_bound(Shape* shape) {
     }
 
 
+    if(shape->translation->y >= PLAYER_SKY_LIMIT) {
+        shape->translation->y = PLAYER_SKY_LIMIT ;
+        shape->move_data->velocity->y *= -1;
+    }
+
+
 
 }
 
