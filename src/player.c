@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "const.h"
 
+#include "util.h"
 
 Shape* create_player() {
 
@@ -54,8 +55,12 @@ void update_player(Shape* shape , unsigned char key) {
 
 void handle_keyboard(Shape* shape , unsigned char key) {
 
-    if(key == 'a')
+    show_vertex("velocity" , shape->move_data->velocity);
+
+    if(key == 'a') 
+
         apply_force_to_player(shape  , create_vector(-SPEED_X_AXIS , 0.0f , 0.0f));
+
 
 
     else if(key == 'd')
@@ -67,6 +72,8 @@ void handle_keyboard(Shape* shape , unsigned char key) {
 
     else if(key == SPACEBAR)
         handle_jump(shape);
+
+
 
 }
 
@@ -118,8 +125,10 @@ void update_movement_data(Shape* shape) {
 
     apply_force_to_player(shape , shape->move_data->gravity);
     
-   
+
     add_vector(shape->move_data->velocity , shape->move_data->acceleration);
+
+    shape->move_data->velocity->x = limit_range(shape->move_data->velocity->x , SPEED_X_AXIS_MAX , SPEED_X_AXIS_MIN);
     add_vector(shape->translation , shape->move_data->velocity);
     multi_vector(shape->move_data->acceleration , 0);
     apply_friction_to_player(shape);

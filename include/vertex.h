@@ -32,4 +32,6 @@ Vector3* copy_vector(Vector3* from , Vector3* to);
 float magitude_of_vector(Vector3* vec);
 void  normalize_vector(Vector3* vec);
 
+void limit(Vector3* vector , float max_value , float min_value);
+
 #endif

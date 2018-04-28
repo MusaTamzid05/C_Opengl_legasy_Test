@@ -28,6 +28,9 @@ extern const float PLAYER_JUMP_FORCE_Y_AXIS;
 extern const float SPEED_X_AXIS;
 extern const float SPEED_Y_AXIS;
 
+extern const float SPEED_X_AXIS_MAX;
+extern const float SPEED_X_AXIS_MIN;
+
 
 //************* Road Data ************/
 

@@ -24,6 +24,8 @@ const float PLAYER_JUMP_FORCE_Y_AXIS = 0.2f;
 const float SPEED_X_AXIS = 0.1f;
 const float SPEED_Y_AXIS = 0.1f;
 
+const float SPEED_X_AXIS_MAX = 0.35;
+const float SPEED_X_AXIS_MIN = -0.35;
 
 
 //************* Road Data ************/
