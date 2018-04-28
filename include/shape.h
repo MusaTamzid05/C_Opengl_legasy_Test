@@ -21,7 +21,7 @@ typedef struct Shape  {
     Vector3* scale;
     float angle;
 
-    void (*update_func_ptr)();
+    void (*update_func_ptr)(struct Shape* shape , unsigned char key);
 
 } Shape;
 
