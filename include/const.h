@@ -55,6 +55,9 @@ extern const float OBJECT_X_DIFF;
 extern const float OBJECT_Y_DIFF;
 extern const float OBJECT_Z_DIFF;
 
+
+extern const int MAX_ANGLE_INCREMENTER;
+extern const int MIN_ANGLE_INCREMENTER;
 // keyboard
 extern const int SPACEBAR;
 

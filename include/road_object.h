@@ -6,7 +6,11 @@
 typedef struct RoadObject {
 
     float angle;
+    float angle_incrementer;
+
+    Vector3* rotation;
     Vector3* color;
+
 
 }RoadObject;
 

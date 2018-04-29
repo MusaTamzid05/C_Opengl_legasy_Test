@@ -54,6 +54,11 @@ const float OBJECT_X_DIFF = 0.5f;
 const float OBJECT_Y_DIFF = -1.0f;
 const float OBJECT_Z_DIFF = 0.5f;
 
+
+const int MAX_ANGLE_INCREMENTER = 5 ;
+const int MIN_ANGLE_INCREMENTER = 1;
+// keyboard
+
 //  Keyboard.
 const int SPACEBAR = 32;
 

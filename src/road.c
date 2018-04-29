@@ -44,10 +44,10 @@ Shape* create_road() {
 
 void update_road(Shape* shape ,unsigned char key) {
 
-    /*
 
     for(int i = 0 ; i < ROAD_RECT_COUNT; i++) {
-       
+
+        /*
         if(road_rects[i]->top <= ROAD_Y_AXIS_BOTTOM){
 
             road_rects[i]->top = ROAD_Y_AXIS_TOP;
@@ -56,9 +56,14 @@ void update_road(Shape* shape ,unsigned char key) {
 
         road_rects[i]->top -= ROAD_RECT_SPEED;
         road_rects[i]->bottom -= ROAD_RECT_SPEED;
+        */
+
+        
+        if(road_rects[i]->road_object != NULL) 
+            road_rects[i]->road_object->angle += road_rects[i]->road_object->angle_incrementer; 
+
     }
 
-    */
 
 
 }
@@ -69,7 +74,7 @@ void draw_road(Shape* shape ) {
         
 
         if(road_rects[i]->road_object != NULL)
-            draw_road_obect(road_rects[i]->left + OBJECT_X_DIFF , road_rects[i]->top +  OBJECT_Y_DIFF , OBJECT_Z_DIFF , road_rects[i]->object_index , road_rects[i]->road_object->color);
+            draw_road_obect(road_rects[i]->left + OBJECT_X_DIFF , road_rects[i]->top +  OBJECT_Y_DIFF , OBJECT_Z_DIFF , road_rects[i]->object_index ,road_rects[i]->road_object) ;
         else
             draw_road_obect(road_rects[i]->left + OBJECT_X_DIFF , road_rects[i]->top +  OBJECT_Y_DIFF , OBJECT_Z_DIFF , road_rects[i]->object_index , NULL);
 
