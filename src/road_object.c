@@ -1,18 +1,12 @@
 #include "road_object.h"
-#include "shape_data.h"
-#include "const.h"
-#include <stdio.h>
+#include "util.h"
+#include <stdlib.h>
 
-Shape* create_road_object(RoadRect* road_rect) {
+RoadObject* create_road_object() {
 
-    printf("%f , %f , %f , %f\n" , road_rect->left ,road_rect->right , road_rect->top, road_rect->bottom);
+    RoadObject* road_object = (RoadObject*)malloc(sizeof(RoadObject));
+    road_object->angle = 0;
+    road_object->color = create_vector (generate_random(1.0) ,generate_random(1.0) , generate_random(1.0));
 
-    Vector3* rotation = create_vector(1.0f , 0.0f , 0.0f);
-    Vector3* translation = create_vector(road_rect->left,  road_rect->top, PLAYER_Z_AXIS_VALUS);
-
-    ShapeData* shape_data = create_shape_data(ObjectCone, 0.2, create_vector(0.0f, 0.0f , 1.0f));
-
-
-    return create_shape(shape_data , translation , rotation , 231.0f  , NULL);
-
+    return road_object;
 }

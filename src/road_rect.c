@@ -47,12 +47,14 @@ RoadRect** create_road_row(int row , float left , float right ,float top , float
         // dont want to build obstacle in the plane !!
         if(road_rects[road_index]->top <= ROAD_Y_AXIS_BOTTOM + 2) {
 
-
-            printf("To close to the road.\n");
             road_rects[road_index]->object_index = NO_OBJECT; 
+            road_rects[road_index]->road_object = NULL;
         }
-        else
+        else {
+
             road_rects[road_index]->object_index = random_road_object_shape();
+            road_rects[road_index]->road_object = create_road_object();
+        }
 
         color_index = (color_index + 1 ) % 2;
         road_index++;

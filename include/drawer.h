@@ -4,6 +4,6 @@
 #include "vertex.h"
 
 void draw_rect(float left , float right , float top , float bottom , Vector3* color);
-void draw_road_obect(float translate_x , float translate_y , float translate_z ,int object_index);
+void draw_road_obect(float translate_x , float translate_y , float translate_z ,int object_index , Vector3* color);
 
 #endif

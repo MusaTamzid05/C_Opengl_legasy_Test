@@ -2,6 +2,8 @@
 #include "const.h"
 #include <GL/glut.h>
 #include "util.h"
+#include <stdio.h>
+
 
 void draw_rect(float left , float right , float top , float bottom , Vector3* color) {
 
@@ -24,7 +26,7 @@ void draw_rect(float left , float right , float top , float bottom , Vector3* co
     glEnd();
 }
 
-void draw_road_obect(float translate_x , float translate_y , float translate_z ,int object_index) {
+void draw_road_obect(float translate_x , float translate_y , float translate_z ,int object_index,  Vector3* color) {
 
     
     if(object_index == NO_OBJECT)
@@ -33,11 +35,11 @@ void draw_road_obect(float translate_x , float translate_y , float translate_z ,
 
     glPushMatrix();
     glTranslatef(translate_x , translate_y , translate_z);
-    
+   
 
     if(object_index == SPHERE_OBJECT) {
         
-        glColor3f(0.0f , 1.0f , 0.0f);
+        glColor3f(color->x , color->y , color->z);
         glutWireSphere(.2, 20 , 20);
     }
     

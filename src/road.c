@@ -66,14 +66,16 @@ void update_road(Shape* shape ,unsigned char key) {
 void draw_road(Shape* shape ) {
 
     for(int i = 0 ; i < ROAD_RECT_COUNT; i++) {
+        
 
-
-            draw_road_obect(road_rects[i]->left + OBJECT_X_DIFF , road_rects[i]->top +  OBJECT_Y_DIFF , OBJECT_Z_DIFF , road_rects[i]->object_index);
-
+        if(road_rects[i]->road_object != NULL)
+            draw_road_obect(road_rects[i]->left + OBJECT_X_DIFF , road_rects[i]->top +  OBJECT_Y_DIFF , OBJECT_Z_DIFF , road_rects[i]->object_index , road_rects[i]->road_object->color);
+        else
+            draw_road_obect(road_rects[i]->left + OBJECT_X_DIFF , road_rects[i]->top +  OBJECT_Y_DIFF , OBJECT_Z_DIFF , road_rects[i]->object_index , NULL);
 
         draw_rect(road_rects[i]->left , road_rects[i]->right , road_rects[i]->top , road_rects[i]->bottom , road_rects[i]->color );
     }
-    
+
 
 
 }

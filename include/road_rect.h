@@ -2,6 +2,7 @@
 #define ROAD_RECT_H
 
 #include "vertex.h"
+#include "road_object.h"
 
 int random_road_object_shape();
 
@@ -14,6 +15,8 @@ typedef struct RoadRect {
     Vector3* color;
 
     int object_index;
+
+    RoadObject* road_object;
 
 } RoadRect;
 
