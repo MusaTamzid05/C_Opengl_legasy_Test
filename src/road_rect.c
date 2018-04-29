@@ -3,7 +3,7 @@
 #include "const.h"
 #include <stdio.h>
 #include "vertex.h"
-
+#include "road_object.h"
 
 RoadRect* create_road_rect(float left , float right , float top , float bottom, Vector3* color) {
 
@@ -14,6 +14,7 @@ RoadRect* create_road_rect(float left , float right , float top , float bottom, 
     road_rect->top = top;
     road_rect->bottom = bottom;
     road_rect->color = color;
+    road_rect->object_index = NO_OBJECT;
 
     return road_rect;
 }
@@ -39,19 +40,14 @@ RoadRect** create_road_row(int row , float left , float right ,float top , float
 
     for(i = left ; i < right; i += increment) {
 
-        if(color_index == 0)
-            printf("white\t");
-
-        else if(color_index == 1)
-            printf("red.\t");
 
         road_rects[road_index] = create_road_rect(i , i+ increment , top , bottom , colors[color_index]);
         
+        road_rects[road_index]->object_index = SPHERE_OBJECT;
         color_index = (color_index + 1 ) % 2;
         road_index++;
     }
 
-    printf("%\n");
 
     return road_rects;
 }

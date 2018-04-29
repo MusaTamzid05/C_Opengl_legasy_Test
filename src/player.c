@@ -55,7 +55,7 @@ void update_player(Shape* shape , unsigned char key) {
 
 void handle_keyboard(Shape* shape , unsigned char key) {
 
-    show_vertex("velocity" , shape->move_data->velocity);
+    //show_vertex("velocity" , shape->move_data->velocity);
 
     if(key == 'a') 
 

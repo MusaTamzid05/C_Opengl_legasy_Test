@@ -8,6 +8,7 @@
 #include "move_data.h"
 #include "drawer.h"
 
+#include <GL/glut.h>
 
 Vector3** create_road_colors() {
 
@@ -44,6 +45,7 @@ Shape* create_road() {
 
 void update_road(Shape* shape ,unsigned char key) {
 
+    /*
 
     for(int i = 0 ; i < ROAD_RECT_COUNT; i++) {
        
@@ -57,15 +59,21 @@ void update_road(Shape* shape ,unsigned char key) {
         road_rects[i]->bottom -= ROAD_RECT_SPEED;
     }
 
-
+    */
 
 
 }
 
 void draw_road(Shape* shape ) {
 
-    for(int i = 0 ; i < ROAD_RECT_COUNT; i++)
+    for(int i = 0 ; i < ROAD_RECT_COUNT; i++) {
+
+
+            draw_road_obect(road_rects[i]->left + OBJECT_X_DIFF , road_rects[i]->top +  OBJECT_Y_DIFF , OBJECT_Z_DIFF , road_rects[i]->object_index);
+
+
         draw_rect(road_rects[i]->left , road_rects[i]->right , road_rects[i]->top , road_rects[i]->bottom , road_rects[i]->color );
+    }
     
 
 

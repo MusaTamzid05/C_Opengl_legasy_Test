@@ -8,7 +8,11 @@
 enum ShapeType {
 
     Wire,
-    RoadCube
+    RoadCube, 
+
+    // This are all road objects below.
+
+    ObjectCone
 
 };
 

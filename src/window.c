@@ -9,16 +9,16 @@
 void init_shapes(Window* window) {
 
 
-    int total_shapes = 2;
+    int total_shapes = 1;
     window->total_shapes = total_shapes;
 
     window->shapes = (Shape**)malloc(sizeof(Shape) * total_shapes);
 
 
-    window->shapes[0] = create_player();
-    window->shapes[0]->update_func_ptr = update_player;
-    window->shapes[1] = create_road();
-    window->shapes[1]->update_func_ptr= update_road;
+    //window->shapes[0] = create_player();
+    //window->shapes[0]->update_func_ptr = update_player;
+    window->shapes[0] = create_road();
+    window->shapes[0]->update_func_ptr= update_road;
 
 
 }

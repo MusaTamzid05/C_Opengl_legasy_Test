@@ -43,6 +43,16 @@ const float ROAD_Y_AXIS_BOTTOM = -3.0f;
 
 const float ROAD_RECT_SPEED = 0.1f; 
 
+
+// Road Objects.
+
+const int NO_OBJECT = -1; 
+
+const int SPHERE_OBJECT = 1; 
+const float OBJECT_X_DIFF = 0.5f;
+const float OBJECT_Y_DIFF = -1.0f;
+const float OBJECT_Z_DIFF = 0.5f;
+
 //  Keyboard.
 const int SPACEBAR = 32;
 

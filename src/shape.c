@@ -25,6 +25,10 @@ void draw_shape(Shape* shape) {
     else if(shape->shape_data->shape_type == RoadCube)
         draw_road(shape);
 
+    else if(shape->shape_data->shape_type == ObjectCone)
+        glutWireCone(shape->shape_data->shape_size,.80,15,15); 
+
+
 
     glPopMatrix();
 
