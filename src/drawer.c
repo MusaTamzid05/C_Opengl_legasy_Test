@@ -1,7 +1,7 @@
 #include "drawer.h"
-#include <GL/glut.h>
 #include "const.h"
-
+#include <GL/glut.h>
+#include "util.h"
 
 void draw_rect(float left , float right , float top , float bottom , Vector3* color) {
 

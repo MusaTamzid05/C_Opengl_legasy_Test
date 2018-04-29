@@ -3,6 +3,8 @@
 
 #include "vertex.h"
 
+int random_road_object_shape();
+
 typedef struct RoadRect {
 
     float left;

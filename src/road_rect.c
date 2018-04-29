@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "vertex.h"
 #include "road_object.h"
+#include "util.h"
 
 RoadRect* create_road_rect(float left , float right , float top , float bottom, Vector3* color) {
 
@@ -42,8 +43,17 @@ RoadRect** create_road_row(int row , float left , float right ,float top , float
 
 
         road_rects[road_index] = create_road_rect(i , i+ increment , top , bottom , colors[color_index]);
-        
-        road_rects[road_index]->object_index = SPHERE_OBJECT;
+      
+        // dont want to build obstacle in the plane !!
+        if(road_rects[road_index]->top <= ROAD_Y_AXIS_BOTTOM + 2) {
+
+
+            printf("To close to the road.\n");
+            road_rects[road_index]->object_index = NO_OBJECT; 
+        }
+        else
+            road_rects[road_index]->object_index = random_road_object_shape();
+
         color_index = (color_index + 1 ) % 2;
         road_index++;
     }
@@ -85,4 +95,16 @@ RoadRect** create_whole_road( float left , float right ,float top , float bottom
     }
 
     return road_rects;
+}
+
+
+int random_road_object_shape() {
+
+    float object_possiblility = generate_random(10);
+
+    if(object_possiblility < OBJECT_RECT_POSSIBILITY)
+        return NO_OBJECT;
+
+    return SPHERE_OBJECT;
+
 }

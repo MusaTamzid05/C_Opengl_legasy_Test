@@ -8,7 +8,6 @@
 #include "move_data.h"
 #include "drawer.h"
 
-#include <GL/glut.h>
 
 Vector3** create_road_colors() {
 
