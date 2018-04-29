@@ -40,7 +40,7 @@ void draw_road_obect(float translate_x , float translate_y , float translate_z ,
     if(object_index == SPHERE_OBJECT) {
         
         glColor3f(road_object->color->x , road_object->color->y , road_object->color->z);
-        glutWireSphere(.2, 20 , 20);
+        glutWireSphere(.4, 20 , 20);
     }
     
     glPopMatrix();
