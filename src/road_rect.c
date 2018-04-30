@@ -65,11 +65,6 @@ RoadRect** create_road_row(int row , float left , float right ,float top , float
 RoadRect** create_whole_road( float left , float right ,float top , float bottom , float row_increment , Vector3** colors) {
 
 
-
-    printf("Top : %f\n" , top);
-    printf("Bottom: %f\n" , bottom);
-
-
     int row_index = 1;
     int rect_index = 0;
     float i;
@@ -78,7 +73,6 @@ RoadRect** create_whole_road( float left , float right ,float top , float bottom
     
     for(i = top ; i > bottom ; i -=  row_increment ) {
       
-        printf("row_index : %d , left : %f , right : %f, top : %f , bottom : %f\n" , row_index , left , right , i , i - row_increment);
         RoadRect** row_road = create_road_row(row_index , left , right , i , i - row_increment , 1.0 ,  colors);
         
         int col = 0;

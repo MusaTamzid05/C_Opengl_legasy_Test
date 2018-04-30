@@ -3,8 +3,8 @@
 
 
 // Player boundaries.
-const int PLAYER_INDEX = 1;
-const int ROAD_INDEX = 0;
+const int PLAYER_INDEX = 0;
+const int ROAD_INDEX = 1;
 const float PLAYER_SCREEN_RIGHT =  2.9999;
 const float PLAYER_SCREEN_LEFT =  -2.9999;
 const float PLAYER_GROUND_LIMIT = -1.4f;
@@ -38,7 +38,6 @@ const int ROAD_RECT_COUNT = 96;
 const int ROAD_COL_COUNT = 8; 
 
 const float ROAD_Y_AXIS_TOP = 9.0f;
-
 const float ROAD_Y_AXIS_BOTTOM = -3.0f;
 
 const float ROAD_RECT_SPEED = 0.1f; 

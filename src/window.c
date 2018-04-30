@@ -4,7 +4,7 @@
 #include "player.h"
 #include "road.h"
 #include "const.h"
-
+#include "collision_detector.h"
 
 void init_shapes(Window* window) {
 
@@ -15,10 +15,10 @@ void init_shapes(Window* window) {
     window->shapes = (Shape**)malloc(sizeof(Shape) * total_shapes);
 
 
-    window->shapes[0] = create_player();
-    window->shapes[0]->update_func_ptr = update_player;
-    window->shapes[1] = create_road();
-    window->shapes[1]->update_func_ptr= update_road;
+    window->shapes[PLAYER_INDEX] = create_player();
+    window->shapes[PLAYER_INDEX]->update_func_ptr = update_player;
+    window->shapes[ROAD_INDEX] = create_road();
+    window->shapes[ROAD_INDEX]->update_func_ptr= update_road;
 
 
 }
@@ -77,5 +77,6 @@ void update_window(Window* window) {
     }
 
     window->current_key = '-';
+
 }
 
