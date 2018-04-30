@@ -51,6 +51,8 @@ extern const float ROAD_RECT_SPEED;
 extern const int NO_OBJECT; 
 extern const int SPHERE_OBJECT; 
 extern const int CUBE_OBJECT; 
+extern const int CONE_OBJECT; 
+extern const int DANGER_CUBE_OBJECT; 
 extern const float OBJECT_RECT_POSSIBILITY;
 extern const float OBJECT_X_DIFF;
 extern const float OBJECT_Y_DIFF;
