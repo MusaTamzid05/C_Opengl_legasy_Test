@@ -40,25 +40,25 @@ void draw_road_obect(float translate_x , float translate_y , float translate_z ,
     if(object_index == SPHERE_OBJECT) {
         
         glColor3f(road_object->color->x , road_object->color->y , road_object->color->z);
-        glutWireSphere(.4, 20 , 20);
+        glutWireSphere(OBJECT_SIZE, 20 , 20); 
 
     } else if(object_index == CUBE_OBJECT){
 
 
         glColor3f(road_object->color->x , road_object->color->y , road_object->color->z);
-        glutSolidCube(.4);
+        glutSolidCube(OBJECT_SIZE);
 
     }else if(object_index == CONE_OBJECT) {
 
 
         glColor3f(road_object->color->x , road_object->color->y , road_object->color->z);
-        glutWireCone(.4 , .5, 15 , 15);
+        glutWireCone(OBJECT_SIZE, .5, 15 , 15);
 
 
     } else if(object_index == DANGER_CUBE_OBJECT) {
 
         glColor3f(1.0 , 0.0 , 0.4);
-        glutSolidCube(.4);
+        glutSolidCube(OBJECT_SIZE);
 
     } 
     

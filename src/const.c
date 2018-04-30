@@ -48,6 +48,7 @@ const float ROAD_RECT_SPEED = 0.1f;
 
 const int NO_OBJECT = -1; 
 
+const float OBJECT_SIZE = 0.4; 
 const int SPHERE_OBJECT = 1; 
 const int CUBE_OBJECT = 2; 
 const int CONE_OBJECT = 3; 

@@ -48,6 +48,8 @@ extern const float ROAD_RECT_SPEED;
 
 // Road Objects.
 
+
+extern const float OBJECT_SIZE; 
 extern const int NO_OBJECT; 
 extern const int SPHERE_OBJECT; 
 extern const int CUBE_OBJECT; 
