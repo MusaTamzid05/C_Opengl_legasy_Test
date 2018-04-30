@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include "vertex.h"
 #include "const.h"
+#include "stats.h"
+
 
 void collision_detector(Shape* shape , RoadRect** road_rect) {
 
@@ -37,7 +39,8 @@ void collision_detector(Shape* shape , RoadRect** road_rect) {
 
         if(player_x >= road_rect[i]->left && player_x <= road_rect[i]->right) {
             if(road_rect[i]->road_object != NULL) {
-               
+              
+                update_score(road_rect[i]->object_index);
                 road_rect[i]->object_index = NO_OBJECT;
                 road_rect[i]->road_object = NULL;
             }

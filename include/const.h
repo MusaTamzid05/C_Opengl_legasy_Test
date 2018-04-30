@@ -77,4 +77,10 @@ extern const int MIN_ANGLE_INCREMENTER;
 // keyboard
 extern const int SPACEBAR;
 
+// Scores
+
+extern const int SPHERE_SCORE;
+extern const int CUBE_SCORE;
+extern const int CONE_SCORE;
+
 #endif

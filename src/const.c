@@ -78,3 +78,8 @@ const int MIN_ANGLE_INCREMENTER = 1;
 const int SPACEBAR = 32;
 
 
+// Scores
+
+const int SPHERE_SCORE = 10;
+const int CUBE_SCORE = 15;
+const int CONE_SCORE = 20;

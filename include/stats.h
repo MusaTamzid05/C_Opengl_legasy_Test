@@ -9,4 +9,6 @@ typedef struct Stats {
 
 Stats* stats;
 Stats* create_stats();
+
+void update_score(int object_index);
 #endif
