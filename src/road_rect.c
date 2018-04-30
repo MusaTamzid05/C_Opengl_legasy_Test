@@ -116,8 +116,6 @@ int random_road_object_shape() {
         return NO_OBJECT;
 
 
-    //return SPHERE_OBJECT;
-
-    return CONE_OBJECT;
+    return generate_random(6) + 1;
 
 }

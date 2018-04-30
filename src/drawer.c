@@ -48,7 +48,7 @@ void draw_road_obect(float translate_x , float translate_y , float translate_z ,
         glColor3f(road_object->color->x , road_object->color->y , road_object->color->z);
         glutSolidCube(OBJECT_SIZE);
 
-    }else if(object_index == CONE_OBJECT) {
+     }else if(object_index == CONE_OBJECT) {
 
 
         glColor3f(road_object->color->x , road_object->color->y , road_object->color->z);
@@ -57,10 +57,20 @@ void draw_road_obect(float translate_x , float translate_y , float translate_z ,
 
     } else if(object_index == DANGER_CUBE_OBJECT) {
 
-        glColor3f(1.0 , 0.0 , 0.4);
+        glColor3f(DANGER_OBJECT_COLOR_RED , DANGER_OBJECT_COLOR_GREEN , DANGER_OBJECT_COLOR_BLUE);
         glutSolidCube(OBJECT_SIZE);
 
-    } 
+    } else if(object_index == DANGER_SPHERE_OBJECT) {
+
+        glColor3f(DANGER_OBJECT_COLOR_RED , DANGER_OBJECT_COLOR_GREEN , DANGER_OBJECT_COLOR_BLUE);
+        glutWireSphere(OBJECT_SIZE, 20 , 20); 
+
+    } else if(object_index == DANGER_CONE_OBJECT) {
+
+        glColor3f(DANGER_OBJECT_COLOR_RED , DANGER_OBJECT_COLOR_GREEN , DANGER_OBJECT_COLOR_BLUE);
+        glutWireCone(OBJECT_SIZE, .5, 15 , 15);
+
+    }
     
     glPopMatrix();
 }

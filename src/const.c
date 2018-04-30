@@ -49,10 +49,21 @@ const float ROAD_RECT_SPEED = 0.1f;
 const int NO_OBJECT = -1; 
 
 const float OBJECT_SIZE = 0.4; 
+
+
+const float DANGER_OBJECT_COLOR_RED = 1.0;
+const float DANGER_OBJECT_COLOR_GREEN = 0.0;
+const float DANGER_OBJECT_COLOR_BLUE = 0.4;
+
 const int SPHERE_OBJECT = 1; 
+
 const int CUBE_OBJECT = 2; 
 const int CONE_OBJECT = 3; 
-const int DANGER_CUBE_OBJECT = 4; 
+const int DANGER_SPHERE_OBJECT = 4; 
+const int DANGER_CUBE_OBJECT = 5; 
+const int DANGER_CONE_OBJECT = 6 ; 
+
+
 const float OBJECT_RECT_POSSIBILITY = 9.0 ;
 const float OBJECT_X_DIFF = 0.5f;
 const float OBJECT_Y_DIFF = -1.0f;

@@ -49,12 +49,21 @@ extern const float ROAD_RECT_SPEED;
 // Road Objects.
 
 
+extern const float DANGER_OBJECT_COLOR_RED;
+extern const float DANGER_OBJECT_COLOR_GREEN;
+extern const float DANGER_OBJECT_COLOR_BLUE;
+
 extern const float OBJECT_SIZE; 
+
 extern const int NO_OBJECT; 
+
 extern const int SPHERE_OBJECT; 
 extern const int CUBE_OBJECT; 
 extern const int CONE_OBJECT; 
+extern const int DANGER_SPHERE_OBJECT; 
 extern const int DANGER_CUBE_OBJECT; 
+extern const int DANGER_CONE_OBJECT; 
+
 extern const float OBJECT_RECT_POSSIBILITY;
 extern const float OBJECT_X_DIFF;
 extern const float OBJECT_Y_DIFF;
