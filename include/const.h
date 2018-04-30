@@ -49,6 +49,8 @@ extern const float ROAD_RECT_SPEED;
 // Road Objects.
 
 
+extern const float  PLAYER_COLLITION_RANGE;
+
 extern const float DANGER_OBJECT_COLOR_RED;
 extern const float DANGER_OBJECT_COLOR_GREEN;
 extern const float DANGER_OBJECT_COLOR_BLUE;

@@ -65,9 +65,12 @@ void update_road(Shape* shape ,unsigned char key) {
 
 
 
+
 }
 
 void draw_road(Shape* shape ) {
+
+
 
     for(int i = 0 ; i < ROAD_RECT_COUNT; i++) {
         
@@ -79,6 +82,7 @@ void draw_road(Shape* shape ) {
 
         draw_rect(road_rects[i]->left , road_rects[i]->right , road_rects[i]->top , road_rects[i]->bottom , road_rects[i]->color );
     }
+
 
 
 

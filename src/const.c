@@ -49,6 +49,7 @@ const int NO_OBJECT = -1;
 
 const float OBJECT_SIZE = 0.4; 
 
+const float  PLAYER_COLLITION_RANGE = 1.f;
 
 const float DANGER_OBJECT_COLOR_RED = 1.0;
 const float DANGER_OBJECT_COLOR_GREEN = 0.0;

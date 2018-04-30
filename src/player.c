@@ -31,7 +31,6 @@ MoveData* create_player_move_data() {
     float mass = 1.0f;
     Vector3* velocity = create_vector(0.0f , 0.0f , 0.0f);
     Vector3* acceleration = create_vector(0.0f , 0.0f , 0.0f);
-
     Vector3* gravity = create_vector(0.0f , PLAYER_GRAVITY , 0.0f);
 
     return create_move_data(velocity , acceleration , gravity , mass , PLAYER_FRICTION);
@@ -130,6 +129,7 @@ void update_movement_data(Shape* shape) {
 
     shape->move_data->velocity->x = limit_range(shape->move_data->velocity->x , SPEED_X_AXIS_MAX , SPEED_X_AXIS_MIN);
     add_vector(shape->translation , shape->move_data->velocity);
+
     multi_vector(shape->move_data->acceleration , 0);
     apply_friction_to_player(shape);
 
