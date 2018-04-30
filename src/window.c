@@ -82,7 +82,6 @@ void update_window(Window* window) {
 
     window->current_key = '-';
     collision_detector(window->shapes[PLAYER_INDEX]  , road_rects);
-
     printf("Score : %d\n" , stats->score);
 
 }
