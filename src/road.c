@@ -47,7 +47,6 @@ void update_road(Shape* shape ,unsigned char key) {
 
     for(int i = 0 ; i < ROAD_RECT_COUNT; i++) {
 
-        /*
         if(road_rects[i]->top <= ROAD_Y_AXIS_BOTTOM){
 
             road_rects[i]->top = ROAD_Y_AXIS_TOP;
@@ -56,7 +55,6 @@ void update_road(Shape* shape ,unsigned char key) {
 
         road_rects[i]->top -= ROAD_RECT_SPEED;
         road_rects[i]->bottom -= ROAD_RECT_SPEED;
-        */
 
         
         if(road_rects[i]->road_object != NULL) 
