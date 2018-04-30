@@ -108,11 +108,16 @@ void  create_random_road_object(RoadRect* road_rect) {
 
 int random_road_object_shape() {
 
+    // first we check whether rect should have a object in the first place.
+
     float object_possiblility = generate_random(10);
 
     if(object_possiblility < OBJECT_RECT_POSSIBILITY)
         return NO_OBJECT;
 
-    return SPHERE_OBJECT;
+
+    //return SPHERE_OBJECT;
+
+    return CUBE_OBJECT;
 
 }
