@@ -51,6 +51,7 @@ void update_road(Shape* shape ,unsigned char key) {
 
             road_rects[i]->top = ROAD_Y_AXIS_TOP;
             road_rects[i]->bottom = ROAD_Y_AXIS_TOP - 1.0f;
+            create_random_road_object(road_rects[i]);
         }
 
         road_rects[i]->top -= ROAD_RECT_SPEED;

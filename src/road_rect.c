@@ -48,13 +48,10 @@ RoadRect** create_road_row(int row , float left , float right ,float top , float
         if(road_rects[road_index]->top <= ROAD_Y_AXIS_BOTTOM + 2) {
 
             road_rects[road_index]->object_index = NO_OBJECT; 
-            road_rects[road_index]->road_object = NULL;
+            road_rects[road_index]->road_object = create_road_object(NO_OBJECT);
         }
-        else {
-
-            road_rects[road_index]->object_index = random_road_object_shape();
-            road_rects[road_index]->road_object = create_road_object();
-        }
+        else 
+            create_random_road_object(road_rects[road_index]);
 
         color_index = (color_index + 1 ) % 2;
         road_index++;
@@ -99,6 +96,15 @@ RoadRect** create_whole_road( float left , float right ,float top , float bottom
     return road_rects;
 }
 
+
+void  create_random_road_object(RoadRect* road_rect) {
+
+
+    road_rect->object_index = random_road_object_shape();
+    road_rect->road_object = create_road_object(road_rect->object_index);
+
+
+}
 
 int random_road_object_shape() {
 

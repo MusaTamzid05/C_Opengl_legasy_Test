@@ -14,5 +14,5 @@ typedef struct RoadObject {
 
 }RoadObject;
 
-RoadObject* create_road_object();
+RoadObject* create_road_object(int road_object_index);
 #endif

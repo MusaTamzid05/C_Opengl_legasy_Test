@@ -3,7 +3,10 @@
 #include <stdlib.h>
 #include "const.h"
 
-RoadObject* create_road_object() {
+RoadObject* create_road_object(int road_object_index) {
+
+    if(road_object_index == NO_OBJECT)
+        return NULL;
 
     RoadObject* road_object = (RoadObject*)malloc(sizeof(RoadObject));
     road_object->angle = 0;
