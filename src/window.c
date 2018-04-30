@@ -5,6 +5,8 @@
 #include "road.h"
 #include "const.h"
 #include "collision_detector.h"
+#include "stats.h"
+
 
 void init_shapes(Window* window) {
 
@@ -19,6 +21,8 @@ void init_shapes(Window* window) {
     window->shapes[PLAYER_INDEX]->update_func_ptr = update_player;
     window->shapes[ROAD_INDEX] = create_road();
     window->shapes[ROAD_INDEX]->update_func_ptr= update_road;
+
+    stats = create_stats();
 
 
 }
