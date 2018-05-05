@@ -57,9 +57,6 @@ void draw_window(Window* window) {
 
     init_window_camera(window);
 
-    if(window->current_state_index == PAUSE_STATE_INDEX) 
-        window->states[GAME_STATE_INDEX]->draw_state_ptr(window->states[GAME_STATE_INDEX]);
-    
 
     window->states[window->current_state_index]->draw_state_ptr(window->states[window->current_state_index]);
 

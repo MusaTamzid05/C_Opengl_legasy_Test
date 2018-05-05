@@ -24,7 +24,7 @@ void draw_text(Text* text){
     glPushMatrix();
     glColor3f(text->color->x, text->color->y , text->color->z);
     gluOrtho2D(0 , 2500 , 0 , 2500);
-    glTranslatef(text->pos->x , text->pos->y , 0.0);
+    glTranslatef(text->pos->x , text->pos->y , text->pos->z);
     //glScalef(2.0 , 3.0  , 1);
 
     glScalef(text->scale->x , text->scale->y , text->scale->z);

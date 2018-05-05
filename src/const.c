@@ -103,3 +103,9 @@ const int PAUSE_STATE_LEFT = 0.0;
 const int PAUSE_STATE_RIGHT = 4.0;
 const int PAUSE_STATE_TOP = 0.0;
 const int PAUSE_STATE_BOTTOM = 2.0;
+
+
+const int PAUSE_STATE_GAME_PAUSE_TEXT = 0;
+const int PAUSE_STATE_SCORE_TEXT = 1;
+const int PAUSE_STATE_CONTINUE_TEXT = 2;
+const int PAUSE_STATE_QUIT_TEXT = 3;

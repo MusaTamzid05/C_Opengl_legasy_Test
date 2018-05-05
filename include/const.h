@@ -99,4 +99,9 @@ extern const int PAUSE_STATE_RIGHT;
 extern const int PAUSE_STATE_TOP;
 extern const int PAUSE_STATE_BOTTOM;
 
+extern const int PAUSE_STATE_GAME_PAUSE_TEXT;
+extern const int PAUSE_STATE_SCORE_TEXT;
+extern const int PAUSE_STATE_CONTINUE_TEXT;
+extern const int PAUSE_STATE_QUIT_TEXT;
+
 #endif

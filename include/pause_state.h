@@ -8,6 +8,8 @@ State* create_pause_state();
 void update_pause_state( int* current_state_index , State* state , unsigned char current_key);
 
 
+void handle_pause_key_event( int* current_state_index , State* state , unsigned char current_key);
+
 void init_pause_state_shapes(State* state);
 void draw_pause_state(State* state);
 
