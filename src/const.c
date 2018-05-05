@@ -83,3 +83,8 @@ const int SPACEBAR = 32;
 const int SPHERE_SCORE = 10;
 const int CUBE_SCORE = 15;
 const int CONE_SCORE = 20;
+
+
+// Game State.
+
+const int SCORING_GAME_STATE_INDEX = 3;

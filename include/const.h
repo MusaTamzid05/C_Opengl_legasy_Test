@@ -83,4 +83,7 @@ extern const int SPHERE_SCORE;
 extern const int CUBE_SCORE;
 extern const int CONE_SCORE;
 
+// Game State.
+extern const int SCORING_GAME_STATE_INDEX;
+
 #endif

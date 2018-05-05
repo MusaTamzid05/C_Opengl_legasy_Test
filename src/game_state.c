@@ -23,7 +23,7 @@ State* create_game_state() {
 
 void init_game_state_texts(State* state) {
 
-    int total_texts = 3;
+    int total_texts = 4;
     state->total_texts = total_texts;
     state->texts = (Text**)malloc(sizeof(Text) * total_texts);
     
@@ -32,6 +32,12 @@ void init_game_state_texts(State* state) {
     state->texts[1] = create_text("Press 'd' to go right." , create_vector(-5500 , 4300 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
 
     state->texts[2] = create_text("Press 'space' to jump." , create_vector(-5500 , 4100 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+
+
+
+    char* score = (char*)malloc(sizeof(char)* 100);
+    sprintf(score , "Score : %d" , stats->score);
+    state->texts[SCORING_GAME_STATE_INDEX] = create_text(score, create_vector(-5500 , 3600 ,0.0) , create_vector(2.0 , 3.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
 
 }
 
@@ -45,8 +51,7 @@ void update_game_state(State* state , unsigned char current_key) {
     }
 
     collision_detector(state->shapes[PLAYER_INDEX]  , road_rects);
-    printf("Score : %d\n" , stats->score);
-
+    update_game_state_score(state);
 
 }
 
@@ -80,5 +85,19 @@ void draw_game_state(State* state) {
 
     for(i = 0 ; i < state->total_texts; i++)
         draw_text(state->texts[i]);
+
+}
+
+
+void update_game_state_score(State* state) {
+
+    if(stats->score <= 0) 
+        state->texts[SCORING_GAME_STATE_INDEX]->color = create_vector(1.0 , 0.0 , 0.0);
+
+    else
+        state->texts[SCORING_GAME_STATE_INDEX]->color = create_vector(0.0 , 1.0 , 0.0);
+
+
+    sprintf(state->texts[3]->str, "Score : %d" , stats->score);
 
 }
