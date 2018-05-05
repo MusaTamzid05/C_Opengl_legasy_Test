@@ -53,6 +53,9 @@ void update_game_state( int* current_state_index , State* state , unsigned char 
     collision_detector(state->shapes[PLAYER_INDEX]  , road_rects);
     update_game_state_score(state);
 
+    if(current_key == 'p') 
+        *current_state_index = PAUSE_STATE_INDEX;
+
 }
 
 

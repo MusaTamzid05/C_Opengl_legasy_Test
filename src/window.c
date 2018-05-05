@@ -5,16 +5,18 @@
 #include "stats.h"
 #include "menu_state.h"
 #include "game_state.h"
+#include "pause_state.h"
 #include "const.h"
 
 void init_states(Window* window) {
 
-    window->total_states = 2;
+    window->total_states = 3;
     window->states= (State**)malloc(sizeof(State) * window->total_states);
 
 
     window->states[MENU_STATE_INDEX] =  create_menu_state();
     window->states[GAME_STATE_INDEX] = create_game_state();
+    window->states[PAUSE_STATE_INDEX] = create_pause_state();
 
     window->current_state_index = MENU_STATE_INDEX;
 }
@@ -55,7 +57,12 @@ void draw_window(Window* window) {
 
     init_window_camera(window);
 
+    if(window->current_state_index == PAUSE_STATE_INDEX) 
+        window->states[GAME_STATE_INDEX]->draw_state_ptr(window->states[GAME_STATE_INDEX]);
+    
+
     window->states[window->current_state_index]->draw_state_ptr(window->states[window->current_state_index]);
+
 
 }
 

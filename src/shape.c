@@ -4,7 +4,7 @@
 
 #include "drawer.h"
 #include "road.h"
-
+#include "const.h"
 
 void draw_shape(Shape* shape) {
 
@@ -29,6 +29,8 @@ void draw_shape(Shape* shape) {
         glutWireCone(shape->shape_data->shape_size,.80,15,15); 
 
 
+    else if(shape->shape_data->shape_type == Rectangle)
+        draw_rect(PAUSE_STATE_LEFT , PAUSE_STATE_RIGHT , PAUSE_STATE_TOP , PAUSE_STATE_BOTTOM, shape->shape_data->color);
 
     glPopMatrix();
 

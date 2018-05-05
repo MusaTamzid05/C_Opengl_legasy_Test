@@ -89,8 +89,17 @@ const int CONE_SCORE = 20;
 
 const int MENU_STATE_INDEX = 0;
 const int GAME_STATE_INDEX = 1;
+const int PAUSE_STATE_INDEX = 2;
 
 
 // Game State.
 
 const int SCORING_GAME_STATE_INDEX = 3;
+
+// Pause State.
+
+
+const int PAUSE_STATE_LEFT = 0.0;
+const int PAUSE_STATE_RIGHT = 4.0;
+const int PAUSE_STATE_TOP = 0.0;
+const int PAUSE_STATE_BOTTOM = 2.0;

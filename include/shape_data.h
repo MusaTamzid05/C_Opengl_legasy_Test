@@ -12,7 +12,8 @@ enum ShapeType {
 
     // This are all road objects below.
 
-    ObjectCone
+    ObjectCone,
+    Rectangle
 
 };
 

@@ -87,8 +87,16 @@ extern const int CONE_SCORE;
 
 extern const int MENU_STATE_INDEX;
 extern const int GAME_STATE_INDEX;
+extern const int PAUSE_STATE_INDEX;
 
 // Game State.
 extern const int SCORING_GAME_STATE_INDEX;
+
+// Pause State
+
+extern const int PAUSE_STATE_LEFT;
+extern const int PAUSE_STATE_RIGHT;
+extern const int PAUSE_STATE_TOP;
+extern const int PAUSE_STATE_BOTTOM;
 
 #endif
