@@ -23,7 +23,7 @@ State* create_game_state() {
 
 void init_game_state_texts(State* state) {
 
-    int total_texts = 4;
+    int total_texts = 5;
     state->total_texts = total_texts;
     state->texts = (Text**)malloc(sizeof(Text) * total_texts);
     
@@ -38,6 +38,9 @@ void init_game_state_texts(State* state) {
     char* score = (char*)malloc(sizeof(char)* 100);
     sprintf(score , "Score : %d" , stats->score);
     state->texts[SCORING_GAME_STATE_INDEX] = create_text(score, create_vector(-5500 , 3600 ,0.0) , create_vector(2.0 , 3.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+
+
+    state->texts[4] = create_text("Press 'p' to pause" , create_vector(4800, 4500 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
 
 }
 
