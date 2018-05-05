@@ -6,6 +6,8 @@
 #include "road.h"
 #include <stdio.h>
 #include "collision_detector.h"
+#include "vertex.h"
+
 
 State* create_game_state() {
 
@@ -14,9 +16,24 @@ State* create_game_state() {
 
     state->update_state_ptr = update_game_state;
     state->draw_state_ptr = draw_game_state;
+    init_game_state_texts(state);
     return state;
 }
 
+
+void init_game_state_texts(State* state) {
+
+    int total_texts = 3;
+    state->total_texts = total_texts;
+    state->texts = (Text**)malloc(sizeof(Text) * total_texts);
+    
+    state->texts[0] = create_text("Press 'a' to go left." , create_vector(-5500 , 4500 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+
+    state->texts[1] = create_text("Press 'd' to go right." , create_vector(-5500 , 4300 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+
+    state->texts[2] = create_text("Press 'space' to jump." , create_vector(-5500 , 4100 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+
+}
 
 void update_game_state(State* state , unsigned char current_key) {
 
@@ -60,5 +77,8 @@ void draw_game_state(State* state) {
 
     for(int i = 0 ; i < state->total_shapes; i++)
         draw_shape(state->shapes[i]);
+
+    for(i = 0 ; i < state->total_texts; i++)
+        draw_text(state->texts[i]);
 
 }
