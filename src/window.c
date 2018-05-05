@@ -3,15 +3,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stats.h"
+#include "menu_state.h"
 #include "game_state.h"
 
 
 void init_states(Window* window) {
 
-    window->total_states = 1;
+    window->total_states = 2;
     window->states= (State**)malloc(sizeof(State) * window->total_states);
-    
-    window->states[0] = create_game_state();
+
+
+    window->states[0] =  create_menu_state();
+    window->states[1] = create_game_state();
 }
 
 
@@ -50,24 +53,15 @@ void draw_window(Window* window) {
 
     init_window_camera(window);
 
-    int i = 0;
-
-    for(int i = 0 ; i < window->total_states; i++)
-        window->states[i]->draw_state_ptr(window->states[i]);
+    window->states[window->current_state_index]->draw_state_ptr(window->states[window->current_state_index]);
 
 }
 
 
 void update_window(Window* window) {
 
-
-
-    int i = 0;
-
-    for(int i = 0 ; i < window->total_states; i++){
-        window->states[i]->update_state_ptr(window->states[i] , window->current_key);
-    }
-
+    
+    window->states[window->current_state_index]->update_state_ptr(window->states[window->current_state_index] , window->current_key);
     window->current_key = '-';
 
 }

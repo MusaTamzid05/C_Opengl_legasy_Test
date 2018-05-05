@@ -18,6 +18,8 @@ typedef struct Window {
     int total_states;
     State** states;
 
+    int current_state_index;
+
 } Window;
 
 
