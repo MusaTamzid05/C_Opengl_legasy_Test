@@ -91,6 +91,7 @@ extern const int PAUSE_STATE_INDEX;
 
 // Game State.
 extern const int SCORING_GAME_STATE_INDEX;
+extern const int ROAD_GAME_STATE_INDEX;
 
 // Pause State
 

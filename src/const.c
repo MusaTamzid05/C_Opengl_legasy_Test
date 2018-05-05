@@ -95,7 +95,7 @@ const int PAUSE_STATE_INDEX = 2;
 // Game State.
 
 const int SCORING_GAME_STATE_INDEX = 3;
-
+const int ROAD_GAME_STATE_INDEX = 5;
 // Pause State.
 
 

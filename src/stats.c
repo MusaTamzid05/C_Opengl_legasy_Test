@@ -3,12 +3,13 @@
 #include "const.h"
 
 
-Stats* create_stats() {
+Stats* create_stats(int total_road) {
 
     Stats* stats = (Stats*)malloc(sizeof(Stats));
     stats->score = 0;
     stats->road_count = 0;
 
+    stats->total_road = total_road;
     return stats;
 }
 

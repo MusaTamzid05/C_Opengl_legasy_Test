@@ -23,7 +23,7 @@ State* create_game_state() {
 
 void init_game_state_texts(State* state) {
 
-    int total_texts = 5;
+    int total_texts = 6;
     state->total_texts = total_texts;
     state->texts = (Text**)malloc(sizeof(Text) * total_texts);
     
@@ -41,6 +41,13 @@ void init_game_state_texts(State* state) {
 
 
     state->texts[4] = create_text("Press 'p' to pause" , create_vector(4800, 4500 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+
+
+    char* road_score_text = (char*)malloc(sizeof(char)* 100);
+    sprintf(road_score_text, "Road complete : %d / %d" , stats->road_count , stats->total_road);
+    state->texts[ROAD_GAME_STATE_INDEX] = create_text(road_score_text, create_vector(-5500 , 3000 ,0.0) , create_vector(1.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+
+
 
 }
 
@@ -77,7 +84,6 @@ void init_game_state_shapes(State* state) {
     state->shapes[ROAD_INDEX] = create_road();
     state->shapes[ROAD_INDEX]->update_func_ptr= update_road;
 
-    stats = create_stats();
 
 }
 
@@ -105,6 +111,8 @@ void update_game_state_score(State* state) {
         state->texts[SCORING_GAME_STATE_INDEX]->color = create_vector(0.0 , 1.0 , 0.0);
 
 
-    sprintf(state->texts[3]->str, "Score : %d" , stats->score);
+    sprintf(state->texts[SCORING_GAME_STATE_INDEX]->str, "Score : %d" , stats->score);
+    sprintf(state->texts[ROAD_GAME_STATE_INDEX]->str, "Road complete : %d / %d" , stats->road_count , stats->total_road);
+
 
 }
