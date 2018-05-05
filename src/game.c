@@ -16,6 +16,7 @@ void run_game(int argc , char** argv , int width , int height , char* title , in
     glutReshapeFunc(handle_resize);
     glutKeyboardFunc(keyboard);
     glutTimerFunc(window->update_time, update_callback , 0);
+    //glutFullScreen();
     glutMainLoop();
 
 }

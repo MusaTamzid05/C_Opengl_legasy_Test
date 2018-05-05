@@ -16,7 +16,6 @@ void init_glut(int argc , char** argv , Window* window) {
 
     main_window = window;
     main_window->current_key ='-';
-    init_shapes(main_window);
 
 }
 

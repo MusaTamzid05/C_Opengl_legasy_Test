@@ -1,31 +1,19 @@
 #include "window.h"
 #include <GL/glut.h>
 #include <stdio.h>
-#include "player.h"
-#include "road.h"
-#include "const.h"
-#include "collision_detector.h"
+#include <stdlib.h>
 #include "stats.h"
+#include "game_state.h"
 
 
-void init_shapes(Window* window) {
+void init_states(Window* window) {
 
-
-    int total_shapes = 2;
-    window->total_shapes = total_shapes;
-
-    window->shapes = (Shape**)malloc(sizeof(Shape) * total_shapes);
-
-
-    window->shapes[PLAYER_INDEX] = create_player();
-    window->shapes[PLAYER_INDEX]->update_func_ptr = update_player;
-    window->shapes[ROAD_INDEX] = create_road();
-    window->shapes[ROAD_INDEX]->update_func_ptr= update_road;
-
-    stats = create_stats();
-
-
+    window->total_states = 1;
+    window->states= (State**)malloc(sizeof(State) * window->total_states);
+    
+    window->states[0] = create_game_state();
 }
+
 
 
 Window* create_window(char* title , int width , int height , Camera* camera , int update_time) {
@@ -37,6 +25,7 @@ Window* create_window(char* title , int width , int height , Camera* camera , in
     window->height = height;
     window->camera = camera;
     window->update_time = update_time;
+    init_states(window);
 
     return window;
 
@@ -63,9 +52,8 @@ void draw_window(Window* window) {
 
     int i = 0;
 
-    for(int i = 0 ; i < window->total_shapes; i++)
-        draw_shape(window->shapes[i]);
-
+    for(int i = 0 ; i < window->total_states; i++)
+        window->states[i]->draw_state_ptr(window->states[i]);
 
 }
 
@@ -76,13 +64,11 @@ void update_window(Window* window) {
 
     int i = 0;
 
-    for(int i = 0 ; i < window->total_shapes; i++){
-        window->shapes[i]->update_func_ptr(window->shapes[i] , window->current_key);
+    for(int i = 0 ; i < window->total_states; i++){
+        window->states[i]->update_state_ptr(window->states[i] , window->current_key);
     }
 
     window->current_key = '-';
-    collision_detector(window->shapes[PLAYER_INDEX]  , road_rects);
-    printf("Score : %d\n" , stats->score);
 
 }
 
