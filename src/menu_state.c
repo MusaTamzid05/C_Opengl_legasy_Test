@@ -1,6 +1,8 @@
 #include "menu_state.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "const.h"
+
 
 int current_menu_option = 0;
 
@@ -17,7 +19,7 @@ State* create_menu_state() {
 }
 
 
-void update_menu_state(State* state , unsigned char current_key) {
+void update_menu_state( int* current_state_index , State* state , unsigned char current_key) {
 
 
     int i = 0;
@@ -26,6 +28,8 @@ void update_menu_state(State* state , unsigned char current_key) {
     }
 
     update_menu_state_option(state, current_key);
+    handle_menu_key_event(current_state_index , state, current_key);
+
 
 }
 
@@ -92,5 +96,20 @@ void update_menu_state_option(State* state , unsigned char current_key) {
     else if(current_menu_option > 1)
         current_menu_option = 1;
 
+}
 
+
+void handle_menu_key_event(int* current_state_index , State* state , unsigned char current_key) {
+
+    if(current_key == SPACEBAR) {
+
+        if(current_menu_option == 0) {
+            *current_state_index = GAME_STATE_INDEX;
+        }
+
+        else if(current_menu_option == 1) {
+            exit(1);
+        }
+
+    }
 }

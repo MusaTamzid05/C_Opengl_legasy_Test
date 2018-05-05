@@ -5,7 +5,7 @@
 #include "stats.h"
 #include "menu_state.h"
 #include "game_state.h"
-
+#include "const.h"
 
 void init_states(Window* window) {
 
@@ -13,8 +13,10 @@ void init_states(Window* window) {
     window->states= (State**)malloc(sizeof(State) * window->total_states);
 
 
-    window->states[0] =  create_menu_state();
-    window->states[1] = create_game_state();
+    window->states[MENU_STATE_INDEX] =  create_menu_state();
+    window->states[GAME_STATE_INDEX] = create_game_state();
+
+    window->current_state_index = MENU_STATE_INDEX;
 }
 
 
@@ -61,7 +63,7 @@ void draw_window(Window* window) {
 void update_window(Window* window) {
 
     
-    window->states[window->current_state_index]->update_state_ptr(window->states[window->current_state_index] , window->current_key);
+    window->states[window->current_state_index]->update_state_ptr( &window->current_state_index ,  window->states[window->current_state_index] , window->current_key);
     window->current_key = '-';
 
 }

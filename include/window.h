@@ -20,6 +20,7 @@ typedef struct Window {
 
     int current_state_index;
 
+
 } Window;
 
 

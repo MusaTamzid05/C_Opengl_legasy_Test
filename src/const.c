@@ -85,6 +85,12 @@ const int CUBE_SCORE = 15;
 const int CONE_SCORE = 20;
 
 
+// state indexs
+
+const int MENU_STATE_INDEX = 0;
+const int GAME_STATE_INDEX = 1;
+
+
 // Game State.
 
 const int SCORING_GAME_STATE_INDEX = 3;
