@@ -11,7 +11,7 @@
 
 void init_states(Window* window) {
 
-    window->total_states = 3;
+    window->total_states = 4;
     window->states= (State**)malloc(sizeof(State) * window->total_states);
 
 
