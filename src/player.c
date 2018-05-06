@@ -128,6 +128,10 @@ void update_movement_data(Shape* shape) {
     add_vector(shape->move_data->velocity , shape->move_data->acceleration);
 
     shape->move_data->velocity->x = limit_range(shape->move_data->velocity->x , SPEED_X_AXIS_MAX , SPEED_X_AXIS_MIN);
+
+
+    shape->move_data->velocity->y = limit_range(shape->move_data->velocity->y , 0.2 , -0.2);
+
     add_vector(shape->translation , shape->move_data->velocity);
 
     multi_vector(shape->move_data->acceleration , 0);
