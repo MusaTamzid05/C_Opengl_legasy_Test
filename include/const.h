@@ -97,6 +97,11 @@ extern const int GAME_STATE_INDEX;
 extern const int PAUSE_STATE_INDEX;
 extern const int GAME_OVER_STATE_INDEX;
 
+// Menu State.
+
+extern const int MENU_STATE_START_INDEX;
+extern const int MENU_STATE_EXIT_INDEX;
+
 // Game State.
 extern const int SCORING_GAME_STATE_INDEX;
 extern const int ROAD_GAME_STATE_INDEX;

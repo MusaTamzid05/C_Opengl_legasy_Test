@@ -98,6 +98,12 @@ const int GAME_STATE_INDEX = 1;
 const int PAUSE_STATE_INDEX = 2;
 const int GAME_OVER_STATE_INDEX = 3;
 
+// Menu State
+
+
+const int MENU_STATE_START_INDEX = 1;
+const int MENU_STATE_EXIT_INDEX = 2;
+
 // Game State.
 
 const int SCORING_GAME_STATE_INDEX = 3;

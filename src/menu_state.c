@@ -4,7 +4,7 @@
 #include "const.h"
 
 
-int current_menu_option = 0;
+int current_menu_option = 1;
 
 State* create_menu_state() {
 
@@ -59,12 +59,14 @@ void draw_menu_state(State* state) {
 void init_menu_state_texts(State* state) {
 
 
-    int total_texts = 2;
+    int total_texts = 3;
     state->total_texts = total_texts;
     state->texts = (Text**)malloc(sizeof(Text) * total_texts);
 
-    state->texts[0] = create_text("Start Game" , create_vector(0.0f , -500.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
-    state->texts[1] = create_text("Exit Game" , create_vector(0.0f , -900.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+
+    state->texts[0] = create_text("Press 'Space' to select. 'w' and 's' to move" , create_vector(-3000.0f , 0.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+    state->texts[MENU_STATE_START_INDEX] = create_text("Start Game" , create_vector(0.0f , -500.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+    state->texts[MENU_STATE_EXIT_INDEX] = create_text("Exit Game" , create_vector(0.0f , -900.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
 
 }
 
@@ -90,11 +92,11 @@ void update_menu_state_option(State* state , unsigned char current_key) {
     else if (current_key == 'w')
         current_menu_option--;
 
-    if(current_menu_option < 0)
-        current_menu_option = 0;
+    if(current_menu_option < MENU_STATE_START_INDEX)
+        current_menu_option = MENU_STATE_START_INDEX;
 
-    else if(current_menu_option > 1)
-        current_menu_option = 1;
+    else if(current_menu_option > MENU_STATE_EXIT_INDEX)
+        current_menu_option = MENU_STATE_EXIT_INDEX;
 
 }
 
@@ -103,11 +105,11 @@ void handle_menu_key_event(int* current_state_index , State* state , unsigned ch
 
     if(current_key == SPACEBAR) {
 
-        if(current_menu_option == 0) {
+        if(current_menu_option == MENU_STATE_START_INDEX) {
             *current_state_index = GAME_STATE_INDEX;
         }
 
-        else if(current_menu_option == 1) {
+        else if(current_menu_option == MENU_STATE_EXIT_INDEX) {
             exit(1);
         }
 
