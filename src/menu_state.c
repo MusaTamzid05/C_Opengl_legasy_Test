@@ -5,6 +5,7 @@
 
 
 int current_menu_option = 1;
+int previous_menu_option = 1;
 
 State* create_menu_state() {
 
@@ -59,7 +60,7 @@ void draw_menu_state(State* state) {
 void init_menu_state_texts(State* state) {
 
 
-    int total_texts = 3;
+    int total_texts = 9;
     state->total_texts = total_texts;
     state->texts = (Text**)malloc(sizeof(Text) * total_texts);
 
@@ -67,11 +68,40 @@ void init_menu_state_texts(State* state) {
     state->texts[0] = create_text("Press 'Space' to select. 'w' and 's' to move" , create_vector(-3000.0f , 0.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
     state->texts[MENU_STATE_START_INDEX] = create_text("Start Game" , create_vector(0.0f , -500.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
     state->texts[MENU_STATE_EXIT_INDEX] = create_text("Exit Game" , create_vector(0.0f , -900.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+   
+    char* score = (char*)malloc(sizeof(char) * 100);
+    sprintf(score , "Random Color  Sphere %d. " , SPHERE_SCORE);
+    state->texts[3] = create_text(score, create_vector(-5000 , 4000.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0)); 
+
+
+
+    char* score1 = (char*)malloc(sizeof(char) * 100);
+    sprintf(score1 , "Random Color Cube %d. " , CUBE_SCORE);
+    state->texts[4] = create_text(score1 , create_vector(-5000 , 3500.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0)); 
+
+
+    char* score2 = (char*)malloc(sizeof(char) * 100);
+    sprintf(score2 , "Random Color Cone %d. " , CONE_SCORE);
+    state->texts[5] = create_text(score2 , create_vector(-5000 , 3000.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0)); 
+
+
+    char* score3= (char*)malloc(sizeof(char) * 100);
+    sprintf(score3 , "Pink Color Sphere -%d. " , SPHERE_SCORE);
+    state->texts[6] = create_text(score3, create_vector(1000 , 4000.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(DANGER_OBJECT_COLOR_RED , DANGER_OBJECT_COLOR_GREEN , DANGER_OBJECT_COLOR_BLUE)); 
+
+
+    char* score4= (char*)malloc(sizeof(char) * 100);
+    sprintf(score4 , "Pink Color Cube -%d. " , CUBE_SCORE);
+    state->texts[7] = create_text(score4 , create_vector(1000 , 3500.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(DANGER_OBJECT_COLOR_RED , DANGER_OBJECT_COLOR_GREEN , DANGER_OBJECT_COLOR_BLUE));
+
+
+    char* score5 = (char*)malloc(sizeof(char) * 100);
+    sprintf(score5 , "Pink Color Cone -%d. " , CONE_SCORE);
+    state->texts[8] = create_text(score5 , create_vector(1000 , 3000.0f ,0.0) , create_vector(2.0 , 2.0 , 1.0) , create_vector(DANGER_OBJECT_COLOR_RED , DANGER_OBJECT_COLOR_GREEN , DANGER_OBJECT_COLOR_BLUE)); 
+
+
 
 }
-
-
-
 void update_menu_state_option(State* state , unsigned char current_key) {
 
 
@@ -79,18 +109,29 @@ void update_menu_state_option(State* state , unsigned char current_key) {
 
     for(i = 0 ; i < state->total_texts; i++) {
 
-        if(i == current_menu_option)
+        if(i == current_menu_option) 
             state->texts[i]->color = create_vector(1.0 , 1.0 , 0.0);
+
+        else if(i == previous_menu_option) 
+            if(previous_menu_option != current_menu_option)
+                state->texts[i]->color = create_vector(1.0 , 1.0 , 1.0);
+        
+        
         else
-            state->texts[i]->color = create_vector(1.0 , 1.0 , 1.0);
+            state->texts[i]->color = create_vector(state->texts[i]->color->x , state->texts[i]->color->y , state->texts[i]->color->z);
 
     }
 
-    if(current_key == 's')
+    if(current_key == 's') {
+        previous_menu_option = current_menu_option;
         current_menu_option++;
+    }
 
-    else if (current_key == 'w')
+    else if (current_key == 'w') {
+
+        previous_menu_option = current_menu_option;
         current_menu_option--;
+    }
 
     if(current_menu_option < MENU_STATE_START_INDEX)
         current_menu_option = MENU_STATE_START_INDEX;
