@@ -66,6 +66,10 @@ void update_game_state( int* current_state_index , State* state , unsigned char 
     if(current_key == 'p') 
         *current_state_index = PAUSE_STATE_INDEX;
 
+
+    if(stats->road_count == stats->total_road)
+        *current_state_index = GAME_OVER_STATE_INDEX;
+
 }
 
 
@@ -113,6 +117,8 @@ void update_game_state_score(State* state) {
 
     sprintf(state->texts[SCORING_GAME_STATE_INDEX]->str, "Score : %d" , stats->score);
     sprintf(state->texts[ROAD_GAME_STATE_INDEX]->str, "Road complete : %d / %d" , stats->road_count , stats->total_road);
+
+        
 
 
 }

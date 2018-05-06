@@ -7,6 +7,7 @@
 #include "game_state.h"
 #include "pause_state.h"
 #include "const.h"
+#include "game_over_state.h"
 
 void init_states(Window* window) {
 
@@ -17,6 +18,7 @@ void init_states(Window* window) {
     window->states[MENU_STATE_INDEX] =  create_menu_state();
     window->states[GAME_STATE_INDEX] = create_game_state();
     window->states[PAUSE_STATE_INDEX] = create_pause_state();
+    window->states[GAME_OVER_STATE_INDEX] = create_game_over_state();
 
     window->current_state_index = MENU_STATE_INDEX;
 }
@@ -58,6 +60,13 @@ void draw_window(Window* window) {
     init_window_camera(window);
 
 
+    if(window->current_state_index == NEW_GAME_STATE) {
+
+        window->states[GAME_STATE_INDEX] = create_game_state();
+        stats->road_count = 0;
+        window->current_state_index = GAME_STATE_INDEX;
+    }
+
     window->states[window->current_state_index]->draw_state_ptr(window->states[window->current_state_index]);
 
 
@@ -66,7 +75,7 @@ void draw_window(Window* window) {
 
 void update_window(Window* window) {
 
-    
+
     window->states[window->current_state_index]->update_state_ptr( &window->current_state_index ,  window->states[window->current_state_index] , window->current_key);
     window->current_key = '-';
 

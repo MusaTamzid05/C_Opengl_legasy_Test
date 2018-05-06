@@ -87,10 +87,12 @@ const int CONE_SCORE = 20;
 
 // state indexs
 
+
+const int NEW_GAME_STATE = -1;
 const int MENU_STATE_INDEX = 0;
 const int GAME_STATE_INDEX = 1;
 const int PAUSE_STATE_INDEX = 2;
-
+const int GAME_OVER_STATE_INDEX = 3;
 
 // Game State.
 
@@ -109,3 +111,11 @@ const int PAUSE_STATE_GAME_PAUSE_TEXT = 0;
 const int PAUSE_STATE_SCORE_TEXT = 1;
 const int PAUSE_STATE_CONTINUE_TEXT = 2;
 const int PAUSE_STATE_QUIT_TEXT = 3;
+
+// Game Over states.
+
+
+const int GAME_OVER_STATE_SCORE_TEXT = 1;
+const int GAME_OVER_STATE_NEW_GAME_TEXT = 2;
+const int GAME_OVER_STATE_EXIT_TEXT = 3;
+
