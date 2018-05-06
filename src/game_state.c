@@ -27,17 +27,17 @@ void init_game_state_texts(State* state) {
     state->total_texts = total_texts;
     state->texts = (Text**)malloc(sizeof(Text) * total_texts);
     
-    state->texts[0] = create_text("Press 'a' to go left." , create_vector(-5500 , 4500 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+    state->texts[0] = create_text("Press 'a' to go left." , create_vector(-5000 , 4500 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
 
-    state->texts[1] = create_text("Press 'd' to go right." , create_vector(-5500 , 4300 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+    state->texts[1] = create_text("Press 'd' to go right." , create_vector(-5000 , 4300 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
 
-    state->texts[2] = create_text("Press 'space' to jump." , create_vector(-5500 , 4100 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+    state->texts[2] = create_text("Press 'space' to jump." , create_vector(-5000 , 4100 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
 
 
 
     char* score = (char*)malloc(sizeof(char)* 100);
     sprintf(score , "Score : %d" , stats->score);
-    state->texts[SCORING_GAME_STATE_INDEX] = create_text(score, create_vector(-5500 , 3600 ,0.0) , create_vector(2.0 , 3.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+    state->texts[SCORING_GAME_STATE_INDEX] = create_text(score, create_vector(-5000 , 3600 ,0.0) , create_vector(2.0 , 3.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
 
 
     state->texts[4] = create_text("Press 'p' to pause" , create_vector(4800, 4500 ,0.0) , create_vector(1.0 , 1.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
@@ -45,7 +45,7 @@ void init_game_state_texts(State* state) {
 
     char* road_score_text = (char*)malloc(sizeof(char)* 100);
     sprintf(road_score_text, "Road complete : %d / %d" , stats->road_count , stats->total_road);
-    state->texts[ROAD_GAME_STATE_INDEX] = create_text(road_score_text, create_vector(-5500 , 3000 ,0.0) , create_vector(1.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
+    state->texts[ROAD_GAME_STATE_INDEX] = create_text(road_score_text, create_vector(-5000 , 3000 ,0.0) , create_vector(1.0 , 2.0 , 1.0) , create_vector(1.0 , 1.0 , 1.0));
 
 
 
