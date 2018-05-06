@@ -68,6 +68,7 @@ void draw_window(Window* window) {
         window->current_state_index = GAME_STATE_INDEX;
     }
 
+
     window->states[window->current_state_index]->draw_state_ptr(window->states[window->current_state_index]);
 
 

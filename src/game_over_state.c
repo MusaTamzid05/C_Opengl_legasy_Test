@@ -56,6 +56,9 @@ void update_game_over_state( int* current_state_index , State* state , unsigned 
 
 
 void init_game_over_state_shapes(State* state) {
+
+    state->shapes = NULL;
+    state->total_shapes = 0;
 }
 
 
