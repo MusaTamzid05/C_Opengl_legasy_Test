@@ -32,6 +32,11 @@ extern const float SPEED_X_AXIS_MAX;
 extern const float SPEED_X_AXIS_MIN;
 
 
+extern const float SPEED_Y_AXIS_MAX;
+extern const float SPEED_Y_AXIS_MIN;
+
+
+
 //************* Road Data ************/
 
 extern const float ROAD_ANGLE;

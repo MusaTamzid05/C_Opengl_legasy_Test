@@ -28,6 +28,10 @@ const float SPEED_X_AXIS_MAX = 0.35;
 const float SPEED_X_AXIS_MIN = -0.35;
 
 
+const float SPEED_Y_AXIS_MAX = 0.2;
+const float SPEED_Y_AXIS_MIN = -0.2;
+
+
 //************* Road Data ************/
 
 const float ROAD_ANGLE = -53.0f;
