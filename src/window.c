@@ -64,6 +64,7 @@ void draw_window(Window* window) {
 
         window->states[GAME_STATE_INDEX] = create_game_state();
         stats->road_count = 0;
+        stats->score= 0;
         window->current_state_index = GAME_STATE_INDEX;
     }
 
